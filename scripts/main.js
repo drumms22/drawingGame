@@ -70,7 +70,7 @@ let getCoordinates = function (e) {
     };
 }*/
 let canvas = document.getElementById("imgCanvas");
-canvas.addEventListener('pointerdown',touchDownType, false);
+canvas.addEventListener('click',touchDownType, false);
 canvas.addEventListener('touchstart',touchDownType, false);
 
 window.addEventListener('pointerup',touchUpType,false);
