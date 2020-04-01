@@ -29,7 +29,7 @@ function clearCanvas(canvas,ctx) {
 
 function sketchpad_mouseDown() {
     mouseDown=1;
-    drawDot(ctx,mouseX,mouseY,70);
+    drawDot(ctx,mouseX,mouseY,50);
 }
 
 
@@ -44,7 +44,7 @@ function sketchpad_mouseMove(e) {
 
 
     if (mouseDown==1) {
-        drawDot(ctx,mouseX,mouseY,70);
+        drawDot(ctx,mouseX,mouseY,50);
     }
 }
 
@@ -68,7 +68,7 @@ function sketchpad_touchStart() {
 
     getTouchPos();
 
-    drawDot(ctx,touchX,touchY,70);
+    drawDot(ctx,touchX,touchY,50);
 
 
     event.preventDefault();
@@ -80,7 +80,7 @@ function sketchpad_touchMove(e) {
     getTouchPos(e);
 
 
-    drawDot(ctx,touchX,touchY,70);
+    drawDot(ctx,touchX,touchY,50);
 
 
     event.preventDefault();
