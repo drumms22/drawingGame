@@ -1,7 +1,7 @@
 let imgArray = [];
 let arr = [];
 let count = 0;
-let canvasStrokeBool = true;
+let canvasStrokeBool = false;
 
 
 let getCoordinates = function (e) {
@@ -22,7 +22,7 @@ let getCoordinates = function (e) {
   console.log("x = " + posx);
   console.log("y = " + posy);
 }else{
-
+  window.removeEventListener("mousemove", getCoordinates);
   console.log("yay");
 
 }
@@ -36,12 +36,16 @@ let getCoordinates = function (e) {
         y: (evt.offsetY - rect.top) / (rect.bottom - rect.top) * canvas.height
     };
 }*/
-
-window.addEventListener('mousedown', function () {
+  let canvas = document.getElementById("imgCanvas");
+canvas.addEventListener('mousedown',function (){
+canvasStrokeBool = true;
 window.addEventListener('mousemove', getCoordinates, false);
 }, false);
 
-
+window.addEventListener('mouseup',function (e){
+  console.log("called");
+canvasStrokeBool = false;
+});
 let checkCoordinates = function (posx, posy) {
   console.log(posx);
   for (var i = 0; i < arr.length; i++) {
@@ -91,7 +95,7 @@ let createStroke = function (x,y,color) {
   var ctx = canvas.getContext("2d");
 
   ctx.beginPath();
-  ctx.arc(x, y, 18, 0, 2 * Math.PI);
+  ctx.arc(x, y, 70, 0, 2 * Math.PI);
   //ctx.rect(x-10, y-10, 25, 25);
   ctx.fillStyle = color;
   ctx.fill();
