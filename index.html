@@ -1,86 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <style media="screen">
-      body {
-        margin:0;
-        padding:0;
-      }
-      #main{
+<head>
+<title>Sketchpad</title>
 
-      }
-      #colorList {
-        width: 50%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-      }
-      li {
-        list-style: none;
-        border: 1px solid black;
-        width: 11%;
-        text-align: center;
-        transition: .25s;
-        color: white;
-      }
-      li:hover {
-        background-color: white;
-        color: black;
-        cursor: pointer;
-      }
-      button {
-        display: inline-block;
-      }
-      #controlPallet {
-        display: flex;
-        flex-directio: row;
-        align-items: center;
-        width: 100%;
-      }
-      #imgCanvas {
-          position:relative;
-      }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
-  </head>
-  <body id="body" onload="init()">
 
-    <!--<div id="main" style="position: relative; width:100%;">
 
-      <div id="tracingCanvas" style="overscroll-behavior: none;font-family: 'Roboto', sans-serif; border: 1px solid black; pointer-events: none;  opacity: 0.3; position: absolute; top:0; left:0; width:1000px;height:700px;display: flex;flex-direction:column;align-items:center;font-size:600px;" ><span id="letter">A</span></div>
-      <canvas id="imgCanvas" style="overscroll-behavior: none;pointer-events: auto;border: 1px solid black;" width="1000" height="700"></canvas>
-      -->
-      <div id="sketchpadapp">
-          <div class="leftside">
-               Touchscreen and mouse support HTML5 canvas sketchpad.<br/><br/>
-               Draw something by tapping or dragging.<br/><br/>
-               Works on iOS, Android and desktop/laptop touchscreens using Chrome/Firefox/Safari.<br/><br/>
-               <input type="submit" value="Clear Sketchpad" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
-          </div>
-          <div class="rightside">
-              <canvas id="sketchpad" height="1000" width="1000">
-              </canvas>
-          </div>
+<style>
+/* Some CSS styling */
+#sketchpadapp {
+  /* Prevent nearby text being highlighted when accidentally dragging mouse outside confines of the canvas */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.leftside {
+  float:left;
+  width:220px;
+  height:285px;
+  background-color:#def;
+  padding:10px;
+  border-radius:4px;
+}
+.rightside {
+  float:left;
+  margin-left:10px;
+}
+#sketchpad {
+  float:left;
+  height:1000px;
+  width:1000px;
+  border:2px solid #888;
+  border-radius:4px;
+  position:relative; /* Necessary for correct mouse co-ords in Firefox */
+}
+#clearbutton {
+  font-size: 15px;
+  padding: 10px;
+  -webkit-appearance: none;
+  background: #eee;
+  border: 1px solid #888;
+}
+</style>
+</head>
+
+<body onload="init()">
+  <div id="sketchpadapp">
+      <div class="leftside">
+           Touchscreen and mouse support HTML5 canvas sketchpad.<br/><br/>
+           Draw something by tapping or dragging.<br/><br/>
+           Works on iOS, Android and desktop/laptop touchscreens using Chrome/Firefox/Safari.<br/><br/>
+           <input type="submit" value="Clear Sketchpad" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
       </div>
-      <div id="controlPallet">
-
-        <button type="button" id="btnClear" onclick="clearCanvas()" name="button">Clear canvas!</button>
-        <ul id="colorList">
-
-          <li onclick="changeColorStroke(1)">Black</li>
-          <li onclick="changeColorStroke(2)">Green</li>
-          <li onclick="changeColorStroke(3)">Red</li>
-          <li onclick="changeColorStroke(4)">Blue</li>
-          <li onclick="changeColorStroke(5)">Yellow</li>
-
-        </ul>
-
+      <div class="rightside">
+          <canvas id="sketchpad"  height="1000" width="1000">
+          </canvas>
       </div>
-
-
-    <script src="scripts/main.js"></script>
-
-  </body>
+  </div>
+      <script src="scripts/canvasScript.js"></script>
+</body>
 </html>
