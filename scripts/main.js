@@ -5,6 +5,7 @@ let canvasStrokeBool = true;
 
 
 
+
 let touchDownType = function (event) {
 
     canvasStrokeBool = true;
@@ -25,12 +26,12 @@ let touchDownType = function (event) {
 }
 
 let touchUpType = function (event) {
-
+  canvas.style.touchAction = "auto";
     canvasStrokeBool = false;
     switch(event.pointerType) {
         case "mouse":
             window.removeEventListener('mousemove', getCoordinates, false);
-            console.log("mouse");
+
             break;
         case "pen":
             window.removeEventListener('pointermove', getCoordinates, false);
@@ -47,9 +48,21 @@ let touchUpType = function (event) {
 let getCoordinates = function (e) {
   let canvas = document.getElementById("imgCanvas");
   var ctx = canvas.getContext("2d");
+  let posx;
+  let posy;
+  canvas.style.touchAction = "none";
   //var pos = getMousePos(canvas, e);
-  let posx = e.changedTouches[0].pageX;
-  let posy = e.changedTouches[0].pageY;
+  if(e.type === "mousemove" || e.pointerType === "pointermove"){
+
+    posx = e.offsetX;
+    posy = e.offsetY;
+
+  }else{
+
+    posx = e.changedTouches[0].pageX;
+    posy = e.changedTouches[0].pageY;
+
+  }
 
   if(canvasStrokeBool === true){
   checkCoordinates(posx, posy);
