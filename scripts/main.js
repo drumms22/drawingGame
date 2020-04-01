@@ -30,9 +30,11 @@ let touchUpType = function (event) {
     switch(event.pointerType) {
         case "mouse":
             window.removeEventListener('mousemove', getCoordinates, false);
+            console.log("mouse");
             break;
         case "pen":
             window.removeEventListener('pointermove', getCoordinates, false);
+            console.log("pointer");
             break;
         case "touch":
             window.removeEventListener('touchmove', getCoordinates, false);
@@ -46,8 +48,8 @@ let getCoordinates = function (e) {
   let canvas = document.getElementById("imgCanvas");
   var ctx = canvas.getContext("2d");
   //var pos = getMousePos(canvas, e);
-  let posx = e.offsetX;
-  let posy = e.offsetY;
+  let posx = e.changedTouches[0].pageX;
+  let posy = e.changedTouches[0].pageY;
 
   if(canvasStrokeBool === true){
   checkCoordinates(posx, posy);
@@ -79,7 +81,6 @@ window.addEventListener('touchend',touchUpType,false);
 let checkCoordinates = function (posx, posy) {
   console.log(posx);
   for (var i = 0; i < arr.length; i++) {
-    console.log(arr[i].x - 5);
     if(posx >= (arr[i].x - 20) && posx <= (arr[i].x + 20) && arr[i].bool === false){
 
       if(posy >= (arr[i].y - 20) && posy <= (arr[i].y + 20)){
