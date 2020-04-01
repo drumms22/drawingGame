@@ -68,7 +68,7 @@ function sketchpad_touchStart() {
 
     getTouchPos();
 
-    drawDot(ctx,touchX,touchY,70);
+    drawDot(ctx,touchX,touchY,700);
 
 
     event.preventDefault();
@@ -80,7 +80,7 @@ function sketchpad_touchMove(e) {
     getTouchPos(e);
 
 
-    drawDot(ctx,touchX,touchY,70);
+    drawDot(ctx,touchX,touchY,700);
 
 
     event.preventDefault();
