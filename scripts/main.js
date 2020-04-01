@@ -74,8 +74,9 @@ let getCoordinates = function (e) {
   //var pos = getMousePos(canvas, e);
   if(e.type === "mousemove" || e.pointerType === "pointermove"){
 
-    posx = e.offsetX;
-    posy = e.offsetY;
+    let pos = getMousePos(canvas, e);
+    posx = pos.x;
+    posy = pos.y;
 
   }else{
 
@@ -95,7 +96,7 @@ let getCoordinates = function (e) {
   console.log("y = " + posy);
 }
 }
-/*function getMousePos(canvas, evt) {
+function getMousePos(canvas, evt) {
   console.log("event = " + evt);
   console.log("canvas = " + canvas);
     var rect = canvas.getBoundingClientRect();
@@ -103,7 +104,7 @@ let getCoordinates = function (e) {
         x: (evt.offsetX - rect.left) / (rect.right - rect.left) * canvas.width,
         y: (evt.offsetY - rect.top) / (rect.bottom - rect.top) * canvas.height
     };
-}*/
+}
 let canvas = document.getElementById("imgCanvas");
 window.addEventListener('pointerdown',touchDownType, false);
 window.addEventListener('touchstart',touchDownType, false);
