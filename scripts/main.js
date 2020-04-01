@@ -81,9 +81,9 @@ window.addEventListener('touchend',touchUpType,false);
 let checkCoordinates = function (posx, posy) {
   console.log(posx);
   for (var i = 0; i < arr.length; i++) {
-    if(posx >= (arr[i].x - 20) && posx <= (arr[i].x + 20) && arr[i].bool === false){
+    if(posx >= (arr[i].x - 30) && posx <= (arr[i].x + 30) && arr[i].bool === false){
 
-      if(posy >= (arr[i].y - 20) && posy <= (arr[i].y + 20)){
+      if(posy >= (arr[i].y - 30) && posy <= (arr[i].y + 30)){
 
           arr[i].bool = true;
           checkCanvas();
