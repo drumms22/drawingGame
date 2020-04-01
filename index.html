@@ -45,13 +45,25 @@
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
   </head>
-  <body id="body">
+  <body id="body" onload="init()">
 
-    <div id="main" style="overscroll-behavior: none;position: relative; width:100%;">
+    <div id="main" style="position: relative; width:100%;">
 
-      <div id="tracingCanvas" style="overscroll-behavior: none;font-family: 'Roboto', sans-serif; border: 1px solid black; pointer-events: none;  opacity: 0.3; position: absolute; top:0; left:0; width:1000px;height:700px;display: flex;flex-direction:column;align-items:center;font-size:600px;" ><span id="letter">A</span></div>
+      <!--<div id="tracingCanvas" style="overscroll-behavior: none;font-family: 'Roboto', sans-serif; border: 1px solid black; pointer-events: none;  opacity: 0.3; position: absolute; top:0; left:0; width:1000px;height:700px;display: flex;flex-direction:column;align-items:center;font-size:600px;" ><span id="letter">A</span></div>
       <canvas id="imgCanvas" style="overscroll-behavior: none;pointer-events: auto;border: 1px solid black;" width="1000" height="700"></canvas>
-
+      -->
+      <div id="sketchpadapp">
+          <div class="leftside">
+               Touchscreen and mouse support HTML5 canvas sketchpad.<br/><br/>
+               Draw something by tapping or dragging.<br/><br/>
+               Works on iOS, Android and desktop/laptop touchscreens using Chrome/Firefox/Safari.<br/><br/>
+               <input type="submit" value="Clear Sketchpad" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
+          </div>
+          <div class="rightside">
+              <canvas id="sketchpad" height="1000" width="1000">
+              </canvas>
+          </div>
+      </div>
       <div id="controlPallet">
 
         <button type="button" id="btnClear" onclick="clearCanvas()" name="button">Clear canvas!</button>

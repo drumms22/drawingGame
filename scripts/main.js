@@ -5,9 +5,7 @@ let canvasStrokeBool = true;
 let colorStroke = "black";
 
 
-window.addEventListener("load", function () {
-init();
-getLetter();
+let addColors =  function () {
 let li = document.getElementsByTagName("li");
 li[0].style.backgroundColor = "black";
 li[1].style.backgroundColor = "green";
@@ -17,7 +15,7 @@ li[4].style.backgroundColor = "yellow";
 li[4].style.color = "black";
 
 //checkScreenWidth();
-},false);
+}
 
 /*
 let checkScreenWidth = function () {
@@ -303,8 +301,8 @@ function getTouchPos(e) {
 // Set-up the canvas and add our event handlers after the page has loaded
 function init() {
     // Get the specific canvas element from the HTML document
-    canvas = document.getElementById('imgCanvas');
-
+    canvas = document.getElementById('sketchpad');
+    getLetter();
     // If the browser supports the canvas tag, get the 2d drawing context for this canvas
     if (canvas.getContext)
         ctx = canvas.getContext('2d');
