@@ -37,12 +37,13 @@ let touchDownType = function (event) {
             window.addEventListener('pointermove', getCoordinates, false);
             break;
         case "touch":
-            window.addEventListener('touchmove', getCoordinates, false);
+            window.addEventListener('touchmove', getTouchCoords, false);
             break;
         default:
             /* pointerType is empty (could not be detected)
             or UA-specific custom type */
     }
+        event.preventDefault();
 }
 
 let touchUpType = function (event) {
@@ -77,6 +78,7 @@ let getCoordinates = function (e) {
     let pos = getMousePos(canvas, e);
     posx = pos.x;
     posy = pos.y;
+
 
   }else{
 
