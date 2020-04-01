@@ -14,7 +14,7 @@ li[3].style.backgroundColor = "blue";
 li[4].style.backgroundColor = "yellow";
 li[4].style.color = "black";
 
-checkScreenWidth();
+//checkScreenWidth();
 },false);
 
 
