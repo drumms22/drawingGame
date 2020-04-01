@@ -16,7 +16,7 @@ li[4].style.color = "black";
 },false);
 
 let touchDownType = function (event) {
-
+  document.getElementById("body").style.overscrollBehavior = "none";
     canvasStrokeBool = true;
     switch(event.pointerType) {
         case "mouse":
@@ -35,7 +35,7 @@ let touchDownType = function (event) {
 }
 
 let touchUpType = function (event) {
-  canvas.style.touchAction = "auto";
+  document.getElementById("body").style.overscrollBehavior = "auto";
     canvasStrokeBool = false;
     switch(event.pointerType) {
         case "mouse":
@@ -59,7 +59,7 @@ let getCoordinates = function (e) {
   var ctx = canvas.getContext("2d");
   let posx;
   let posy;
-  canvas.style.touchAction = "none";
+
   //var pos = getMousePos(canvas, e);
   if(e.type === "mousemove" || e.pointerType === "pointermove"){
 
@@ -76,7 +76,7 @@ let getCoordinates = function (e) {
   if(canvasStrokeBool === true){
   checkCoordinates(posx, posy);
 
-  createStroke(posx,posy,"black");
+  createStroke(posx,posy);
 
   imgArray.push({x:posx,y:posy});
   console.log(imgArray);
