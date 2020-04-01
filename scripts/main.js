@@ -13,7 +13,18 @@ li[2].style.backgroundColor = "red";
 li[3].style.backgroundColor = "blue";
 li[4].style.backgroundColor = "yellow";
 li[4].style.color = "black";
+
+checkScreenWidth();
 },false);
+
+
+let checkScreenWidth = function () {
+
+  if(window.screenWidth > 1000){
+    document.getElementById("canvas").style.marginLeft = "5%";
+  }
+
+}
 
 let touchDownType = function (event) {
   document.getElementById("body").style.overscrollBehavior = "none";
