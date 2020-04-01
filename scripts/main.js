@@ -221,6 +221,7 @@ function clearCanvas(canvas,ctx) {
 // Keep track of the mouse button being pressed and draw a dot at current location
 function sketchpad_mouseDown() {
     mouseDown=1;
+    checkCoordinates(mouseX,mouseY);
     drawDot(ctx,mouseX,mouseY,12);
 }
 
@@ -233,7 +234,7 @@ function sketchpad_mouseUp() {
 function sketchpad_mouseMove(e) {
     // Update the mouse co-ordinates when moved
     getMousePos(e);
-
+    checkCoordinates(mouseX,mouseY);
     // Draw a dot if the mouse button is currently being pressed
     if (mouseDown==1) {
         drawDot(ctx,mouseX,mouseY,12);
@@ -259,6 +260,8 @@ function getMousePos(e) {
 function sketchpad_touchStart() {
     // Update the touch co-ordinates
     getTouchPos();
+
+    checkCoordinates(touchX,touchY);
 
     drawDot(ctx,touchX,touchY,12);
 
