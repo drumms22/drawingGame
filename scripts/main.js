@@ -2,9 +2,18 @@ let imgArray = [];
 let arr = [];
 let count = 0;
 let canvasStrokeBool = true;
+let colorStroke = "black";
 
 
-
+window.addEventListener("load", function () {
+let li = document.getElementsByTagName("li");
+li[0].style.backgroundColor = "black";
+li[1].style.backgroundColor = "green";
+li[2].style.backgroundColor = "red";
+li[3].style.backgroundColor = "blue";
+li[4].style.backgroundColor = "yellow";
+li[4].style.color = "black";
+},false);
 
 let touchDownType = function (event) {
 
@@ -150,7 +159,7 @@ for (var i = 0; i < letterA.length; i++) {
 }*/
 }
 
-let createStroke = function (x,y,color) {
+let createStroke = function (x,y) {
 
   let canvas = document.getElementById("imgCanvas");
   var ctx = canvas.getContext("2d");
@@ -158,11 +167,36 @@ let createStroke = function (x,y,color) {
   ctx.beginPath();
   ctx.arc(x, y, 70, 0, 2 * Math.PI);
   //ctx.rect(x-10, y-10, 25, 25);
-  ctx.fillStyle = color;
+  ctx.fillStyle = colorStroke;
   ctx.fill();
 
 }
 
+let changeColorStroke = function (num) {
+  console.log("colorChange");
+  switch (num) {
+    case 1:
+        colorStroke = "black";
+      break;
+    case 2:
+        colorStroke = "green";
+      break;
+    case 3:
+        colorStroke = "red";
+      break;
+    case 4:
+        colorStroke = "blue";
+      break;
+    case 5:
+        colorStroke = "yellow";
+      break;
+
+    default:
+
+        colorStroke = "black";
+  }
+
+}
 let checkCanvas = function () {
   let count = 0;
   console.log("canvas check....");

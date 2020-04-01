@@ -8,6 +8,26 @@
         margin:0;
         padding:0;
       }
+      #colorList {
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      li {
+        list-style: none;
+        border: 1px solid black;
+        width: 11%;
+        text-align: center;
+        transition: .25s;
+        color: white;
+      }
+      li:hover {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+      }
+
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
   </head>
@@ -18,7 +38,15 @@
       <div id="tracingCanvas" style="overscroll-behavior: none;font-family: 'Roboto', sans-serif; border: 1px solid black; pointer-events: none;  opacity: 0.3; position: absolute; top:0; left:0; width:1000px;height:1000px;display: flex;flex-direction:column;align-items:center;font-size:700px;" ><span id="letter">A</span></div>
       <canvas id="imgCanvas" style="overscroll-behavior: none;pointer-events: auto;border: 1px solid black;" width="1000" height="1000"></canvas>
       <button type="button" id="btnClear" onclick="clearCanvas()" name="button">Clear canvas!</button>
+      <ul id="colorList">
 
+        <li onclick="changeColorStroke(1)">Black</li>
+        <li onclick="changeColorStroke(2)">Green</li>
+        <li onclick="changeColorStroke(3)">Red</li>
+        <li onclick="changeColorStroke(4)">Blue</li>
+        <li onclick="changeColorStroke(5)">Yellow</li>
+
+      </ul>
     </div>
 
 
