@@ -27,6 +27,7 @@
 .rightside {
   float:left;
   margin-left:10px;
+  position: relative;
 }
 #sketchpad {
   float:left;
@@ -43,18 +44,25 @@
   background: #eee;
   border: 1px solid #888;
 }
+#letterLayer {
+  height: 1000px;
+  width: 1000px;
+  pointer-events: none;
+  opacity: .3;
+  font-size: 600px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 </style>
 </head>
 
 <body onload="init()">
   <div id="sketchpadapp">
-      <div class="leftside">
-           Touchscreen and mouse support HTML5 canvas sketchpad.<br/><br/>
-           Draw something by tapping or dragging.<br/><br/>
-           Works on iOS, Android and desktop/laptop touchscreens using Chrome/Firefox/Safari.<br/><br/>
-           <input type="submit" value="Clear Sketchpad" id="clearbutton" onclick="clearCanvas(canvas,ctx);">
-      </div>
+
       <div class="rightside">
+          <div id="letterLayer">A</div>
           <canvas id="sketchpad"  height="1000" width="1000">
           </canvas>
       </div>
