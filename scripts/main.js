@@ -219,7 +219,7 @@ function clearCanvas(canvas,ctx) {
 // Keep track of the mouse button being pressed and draw a dot at current location
 function sketchpad_mouseDown() {
     mouseDown=1;
-    checkCoordinates(mouseX,mouseY);
+  //  checkCoordinates(mouseX,mouseY);
     drawDot(ctx,mouseX,mouseY,12);
 }
 
@@ -232,7 +232,7 @@ function sketchpad_mouseUp() {
 function sketchpad_mouseMove(e) {
     // Update the mouse co-ordinates when moved
     getMousePos(e);
-    checkCoordinates(mouseX,mouseY);
+  //  checkCoordinates(mouseX,mouseY);
     // Draw a dot if the mouse button is currently being pressed
     if (mouseDown==1) {
         drawDot(ctx,mouseX,mouseY,12);
@@ -259,7 +259,7 @@ function sketchpad_touchStart() {
     // Update the touch co-ordinates
     getTouchPos();
 
-    checkCoordinates(touchX,touchY);
+    //checkCoordinates(touchX,touchY);
 
     drawDot(ctx,touchX,touchY,12);
 
@@ -272,7 +272,7 @@ function sketchpad_touchMove(e) {
     // Update the touch co-ordinates
     getTouchPos(e);
 
-    checkCoordinates(touchX,touchY);
+    //checkCoordinates(touchX,touchY);
     // During a touchmove event, unlike a mousemove event, we don't need to check if the touch is engaged, since there will always be contact with the screen by definition.
     drawDot(ctx,touchX,touchY,12);
 
@@ -302,7 +302,7 @@ function getTouchPos(e) {
 function init() {
     // Get the specific canvas element from the HTML document
     canvas = document.getElementById('sketchpad');
-    getLetter();
+    //getLetter();
     // If the browser supports the canvas tag, get the 2d drawing context for this canvas
     if (canvas.getContext)
         ctx = canvas.getContext('2d');
