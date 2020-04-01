@@ -70,8 +70,8 @@ let getCoordinates = function (e) {
     };
 }*/
 let canvas = document.getElementById("imgCanvas");
-canvas.addEventListener('click',touchDownType, false);
-canvas.addEventListener('touchstart',touchDownType, false);
+window.addEventListener('pointerdown',touchDownType, false);
+window.addEventListener('touchstart',touchDownType, false);
 
 window.addEventListener('pointerup',touchUpType,false);
 window.addEventListener('touchend',touchUpType,false);
