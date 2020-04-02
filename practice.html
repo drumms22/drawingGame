@@ -15,7 +15,7 @@
         self.audio = audio;
         var startAudio = function(){
                              self.audio.play();
-                             document.removeEventListener("touchstart", self.startAudio, false);
+                             document.removeEventListener("click", self.startAudio, false);
                             // document.removeEventListener("mousedown", self.startAudio, false);
                          }
         self.startAudio = startAudio;
@@ -26,8 +26,8 @@
                          }
         self.pauseAudio = pauseAudio;
 
-        window.addEventListener("touchstart", self.startAudio, false);
-        window.addEventListener("mousedown", self.startAudio, false);
+        window.addEventListener("click", self.startAudio, false);
+        window.addEventListener("click", self.startAudio, false);
         console.log("audio");
         //self.audio.addEventListener("play", self.pauseAudio, false);
     }
