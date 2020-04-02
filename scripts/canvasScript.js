@@ -15,7 +15,10 @@ var touchX,touchY;
 function drawDot(ctx,x,y,size) {
 
   console.log("{ x: " + x + ", y: " + y + ", bool: false },");
-
+  
+    if(window.innerHeight < window.innerWidth){
+      x-=25;
+    }
     ctx.fillStyle = colorStroke;
 
     ctx.beginPath();
@@ -123,6 +126,7 @@ li[4].style.color = "black";
 }
 
 function init() {
+
 
     canvas = document.getElementById('sketchpad');
     //addColors();
