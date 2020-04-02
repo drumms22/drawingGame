@@ -37,8 +37,7 @@ let clearCanvas = function (canvas,ctx) {
     /*for (var i = 0; i < arr.length; i++) {
       arr[i].bool = false;
     }*/
-    imgArray= [];
-    drawingCorrect = false;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 }
@@ -530,6 +529,7 @@ let randomNumbers = function(max){
 }
 
 let btnClear = function () {
+  imgArray= [];
   drawingCorrect = false;
   hideImg();
   getLetter(letterNum);
