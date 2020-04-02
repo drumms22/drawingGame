@@ -5,6 +5,13 @@ let letterNum = -1;
 let count = 0;
 let drawingCorrect = false;
 let colorStroke = "black";
+const soundEffect = new Audio();
+let audioBool = false;
+
+// onClick of first interaction on page before I need the sounds
+//soundEffect.play();
+
+// later on when you actually want to play a sound at any point without user interactio
 
 
 var mouseX,mouseY,mouseDown=0;
@@ -35,18 +42,20 @@ function drawDot(ctx,x,y,size) {
 
 
 function sketchpad_mouseDown() {
+  soundEffect.play();
     mouseDown=1;
     drawDot(ctx,mouseX,mouseY,55);
 }
 
 
 function sketchpad_mouseUp() {
+  soundEffect.play();
     mouseDown=0;
 }
 
 
 function sketchpad_mouseMove(e) {
-
+  soundEffect.play();
     getMousePos(e);
 
 
@@ -57,6 +66,7 @@ function sketchpad_mouseMove(e) {
 
 
 function getMousePos(e) {
+  soundEffect.play();
     if (!e)
         var e = event;
 
@@ -72,7 +82,7 @@ function getMousePos(e) {
 
 
 function sketchpad_touchStart() {
-
+  soundEffect.play();
     getTouchPos();
 
     drawDot(ctx,touchX,touchY,55);
@@ -83,7 +93,7 @@ function sketchpad_touchStart() {
 
 
 function sketchpad_touchMove(e) {
-
+  soundEffect.play();
     getTouchPos(e);
 
 
@@ -95,6 +105,7 @@ function sketchpad_touchMove(e) {
 
 
 function getTouchPos(e) {
+  soundEffect.play();
     if (!e)
         var e = event;
 
@@ -549,7 +560,7 @@ let playSound = function (num) {
 
     switch (num) {
       case 1:
-        var audio = new Audio('sounds/click1.OGG');
+      var audio = new Audio('sounds/rollover3.OGG');
         audio.play();
         break;
       case 2:
@@ -557,5 +568,15 @@ let playSound = function (num) {
         audio.play();
         break;
     }
+
+}
+
+let playAudio = function () {
+
+  if (playAudio === false) {
+
+    soundEffect.play();
+
+  }
 
 }
