@@ -28,6 +28,7 @@
   height:700px;
   width: 1000px;
   border:2px solid #888;
+  box-shadow: 0 0 10px black;
   border-radius:4px;
   position:relative; /* Necessary for correct mouse co-ords in Firefox */
   z-index: 1;
@@ -37,7 +38,7 @@
   height: 700px;
   width:1000px;
   pointer-events: none;
-  opacity: .3;
+  opacity: .1;
   font-size: 500px;
   position: absolute;
   display: flex;
@@ -58,6 +59,7 @@
   border-right: 3px solid black;
   display: flex;
   z-index: 99;
+  box-shadow: 0 0 10px black;
 }
 #iconColorPallet {
   width: 50%;
@@ -150,7 +152,7 @@ margin-left: 0;
   flex-direction: column;
   align-items: center;
   position: fixed;
-  bottom: -20px;
+  bottom: -30px;
   left: 17.5%;
   height: 70px;
   background-color: gray;
@@ -159,6 +161,7 @@ margin-left: 0;
   border-right: 3px solid black;
   transition: .25s;
   z-index: 98;
+  box-shadow: 0 0 10px black;
 }
 .palletIcon {
   border-left: 1px solid black;
@@ -176,7 +179,7 @@ margin-left: 0;
   width: 65%;
   display: flex;
   position: fixed;
-  bottom: -45px;
+  bottom: -55px;
   left: 17.5%;
   height: 95px;
   background-color: gray;
@@ -185,7 +188,7 @@ margin-left: 0;
   border-right: 3px solid black;
   transition: .25s;
   z-index: 98;
-  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 0 10px black;
 }
 .slideIn {
   animation: slideIn .3s linear;
@@ -234,16 +237,12 @@ margin-left: 0;
 
 <body onload="init()">
 
-  <div id="popUp">
-
-    <img src="images/happy.jpg" class="imgStyles" id="imgHappy" alt="Smiley face picture for kids">
-
-  </div>
-
   <div id="sketchpadapp">
 
       <div class="rightside">
-          <div id="letterLayer"></div>
+
+        <div id="popUp"></div>
+          <div id="letterLayer">Z</div>
           <canvas id="sketchpad"  height="700" width="1000">
           </canvas>
       </div>

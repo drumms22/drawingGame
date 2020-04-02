@@ -208,7 +208,16 @@ let checkCanvas = function () {
 
 let displayImg = function () {
 
+  let rand = randomNumbers(5);
+
+  if(rand < 1 || rand > 5){
+
+    rand = 1;
+
+  }
+
   document.getElementById("popUp").style.display = "block";
+  document.getElementById("popUp").innerHTML = "<img src='images/happy" + rand + ".jpg' class='imgStyles' id='imgHappy' alt='Smiley face picture for kids'>";
   document.getElementById("popUp").classList.add("spinner");
 
   setTimeout(function(){
@@ -327,25 +336,158 @@ let letterJ = [
 { x: 554, y: 300, bool: false },
 { x: 396, y: 429, bool: false }];
 
-let letterK = [];
-let letterL = [];
-let letterM = [];
-let letterN = [];
-let letterO = [];
-let letterP = [];
-let letterQ = [];
-let letterR = [];
-let letterS = [];
-let letterT = [];
-let letterU = [];
-let letterV = [];
-let letterW = [];
-let letterX = [];
-let letterY = [];
-let letterZ = [];
+let letterK = [
+{ x: 388, y: 439, bool: false },
+{ x: 387, y: 314, bool: false },
+{ x: 387, y: 174, bool: false },
+{ x: 484, y: 285, bool: false },
+{ x: 601, y: 155, bool: false },
+{ x: 555, y: 366, bool: false },
+{ x: 615, y: 449, bool: false },
+];
+
+let letterL = [
+{ x: 425, y: 434, bool: false },
+{ x: 600, y: 434, bool: false },
+{ x: 425, y: 277, bool: false },
+{ x: 431, y: 160, bool: false },
+];
+
+let letterM = [
+{ x: 337, y: 434, bool: false },
+{ x: 336, y: 295, bool: false },
+{ x: 335, y: 165, bool: false },
+{ x: 432, y: 287, bool: false },
+{ x: 500, y: 387, bool: false },
+{ x: 499, y: 386, bool: false },
+{ x: 571, y: 272, bool: false },
+{ x: 656, y: 170, bool: false },
+{ x: 655, y: 307, bool: false },
+{ x: 657, y: 429, bool: false },
+];
+
+let letterN = [
+{ x: 376, y: 432, bool: false },
+{ x: 375, y: 297, bool: false },
+{ x: 371, y: 166, bool: false },
+{ x: 481, y: 284, bool: false },
+{ x: 557, y: 381, bool: false },
+{ x: 628, y: 442, bool: false },
+{ x: 623, y: 285, bool: false },
+{ x: 612, y: 169, bool: false },
+];
+
+let letterO = [
+{ x: 492, y: 162, bool: false },
+{ x: 609, y: 222, bool: false },
+{ x: 627, y: 369, bool: false },
+{ x: 499, y: 441, bool: false },
+{ x: 364, y: 390, bool: false },
+{ x: 364, y: 255, bool: false },
+];
+
+let letterP = [
+{ x: 400, y: 190, bool: false },
+{ x: 393, y: 315, bool: false },
+{ x: 398, y: 434, bool: false },
+{ x: 504, y: 344, bool: false },
+{ x: 619, y: 264, bool: false },
+{ x: 536, y: 166, bool: false },
+];
+
+let letterQ = [
+{ x: 648, y: 522, bool: false },
+{ x: 530, y: 491, bool: false },
+{ x: 609, y: 391, bool: false },
+{ x: 627, y: 238, bool: false },
+{ x: 451, y: 164, bool: false },
+{ x: 349, y: 302, bool: false },
+{ x: 407, y: 412, bool: false },
+];
+
+let letterR = [
+{ x: 604, y: 441, bool: false },
+{ x: 521, y: 355, bool: false },
+{ x: 392, y: 426, bool: false },
+{ x: 394, y: 295, bool: false },
+{ x: 399, y: 182, bool: false },
+{ x: 532, y: 170, bool: false },
+{ x: 610, y: 254, bool: false },
+];
+
+let letterS = [
+{ x: 575, y: 169, bool: false },
+{ x: 432, y: 172, bool: false },
+{ x: 413, y: 283, bool: false },
+{ x: 535, y: 313, bool: false },
+{ x: 595, y: 399, bool: false },
+{ x: 408, y: 426, bool: false },
+{ x: 507, y: 446, bool: false },
+];
+
+let letterT = [
+{ x: 499, y: 436, bool: false },
+{ x: 603, y: 166, bool: false },
+{ x: 392, y: 164, bool: false },
+{ x: 500, y: 175, bool: false },
+{ x: 499, y: 304, bool: false },
+];
+
+let letterU = [
+{ x: 381, y: 177, bool: false },
+{ x: 377, y: 311, bool: false },
+{ x: 423, y: 418, bool: false },
+{ x: 502, y: 450, bool: false },
+{ x: 587, y: 394, bool: false },
+{ x: 616, y: 269, bool: false },
+{ x: 611, y: 165, bool: false },
+];
+
+let letterV = [
+{ x: 369, y: 172, bool: false },
+{ x: 413, y: 295, bool: false },
+{ x: 496, y: 432, bool: false },
+{ x: 572, y: 306, bool: false },
+{ x: 628, y: 165, bool: false },
+];
+
+let letterW = [
+{ x: 375, y: 444, bool: false },
+{ x: 624, y: 431, bool: false },
+{ x: 271, y: 177, bool: false },
+{ x: 505, y: 178, bool: false },
+{ x: 724, y: 172, bool: false },
+{ x: 311, y: 298, bool: false },
+{ x: 444, y: 309, bool: false },
+{ x: 556, y: 309, bool: false },
+{ x: 692, y: 307, bool: false },
+];
+
+let letterX = [
+{ x: 395, y: 165, bool: false },
+{ x: 604, y: 162, bool: false },
+{ x: 496, y: 290, bool: false },
+{ x: 604, y: 444, bool: false },
+{ x: 377, y: 450, bool: false },
+];
+
+let letterY = [
+{ x: 384, y: 165, bool: false },
+{ x: 611, y: 167, bool: false },
+{ x: 498, y: 437, bool: false },
+{ x: 496, y: 317, bool: false },
+];
+
+let letterZ = [
+{ x: 389, y: 168, bool: false },
+{ x: 614, y: 434, bool: false },
+{ x: 608, y: 167, bool: false },
+{ x: 384, y: 440, bool: false },
+{ x: 491, y: 310, bool: false },
+];
 
 
-let letterCoordsArr = [letterA,letterB,letterC, letterD, letterE, letterF, letterG, letterH, letterI, letterJ];
+let letterCoordsArr = [letterA,letterB,letterC, letterD, letterE, letterF, letterG, letterH, letterI, letterJ, letterK, letterL, letterM, letterN, letterO, letterP, letterQ, letterR, letterS, letterT, letterU, letterV, letterW, letterX, letterY, letterZ];
 
 if(num > -1){
 
