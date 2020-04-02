@@ -31,13 +31,7 @@
   border-radius:4px;
   position:relative; /* Necessary for correct mouse co-ords in Firefox */
 }
-#clearbutton {
-  font-size: 15px;
-  padding: 10px;
-  -webkit-appearance: none;
-  background: #eee;
-  border: 1px solid #888;
-}
+
 #letterLayer {
   height: 700px;
   width:1000px;
@@ -184,6 +178,13 @@ margin-left: 0;
   to {bottom: 50px;}
 
 }
+
+@media screen and (orientation:landscape)
+{
+  .rightside {
+    margin-left: 5%;
+  }
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/f9a072afa5.js" crossorigin="anonymous"></script>
@@ -229,21 +230,21 @@ Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
 
   <ul id="colorList">
 
-    <li style="background-Color: black;" onclick="changeColorStroke(1)"></li>
-    <li style="background-Color: green;" onclick="changeColorStroke(2)"></li>
-    <li style="background-Color: red;" onclick="changeColorStroke(3)"></li>
-    <li style="background-Color: blue;" onclick="changeColorStroke(4)"></li>
-    <li style="background-Color: purple;" onclick="changeColorStroke(5)"></li>
-    <li style="background-Color: #ff3399;" onclick="changeColorStroke(6)"></li>
-    <li style="background-Color: yellow;"  onclick="changeColorStroke(7)"></li>
-    <li style="background-Color: orange;" onclick="changeColorStroke(8)"></li>
-    <li style="background-Color: #66ff33;" onclick="changeColorStroke(9)"></li>
-    <li style="background-Color: #ff1a1a;" onclick="changeColorStroke(10)"></li>
-    <li style="background-Color: #00ffff;" onclick="changeColorStroke(11)"></li>
-    <li style="background-Color: #ff99ff;" onclick="changeColorStroke(12)"></li>
-    <li style="background-Color: #ff33cc;" onclick="changeColorStroke(13)"></li>
-    <li style="background-Color: brown;" onclick="changeColorStroke(14)"></li>
-    <li style="background-Color: white;" onclick="changeColorStroke(15)"></li>
+    <li style="background-Color: black;" onclick="changeColorStroke(0)"></li>
+    <li style="background-Color: green;" onclick="changeColorStroke(1)"></li>
+    <li style="background-Color: red;" onclick="changeColorStroke(2)"></li>
+    <li style="background-Color: blue;" onclick="changeColorStroke(3)"></li>
+    <li style="background-Color: purple;" onclick="changeColorStroke(4)"></li>
+    <li style="background-Color: #ff3399;" onclick="changeColorStroke(5)"></li>
+    <li style="background-Color: yellow;"  onclick="changeColorStroke(6)"></li>
+    <li style="background-Color: orange;" onclick="changeColorStroke(7)"></li>
+    <li style="background-Color: #66ff33;" onclick="changeColorStroke(8)"></li>
+    <li style="background-Color: #ff1a1a;" onclick="changeColorStroke(9)"></li>
+    <li style="background-Color: #00ffff;" onclick="changeColorStroke(10)"></li>
+    <li style="background-Color: #ff99ff;" onclick="changeColorStroke(11)"></li>
+    <li style="background-Color: #ff33cc;" onclick="changeColorStroke(12)"></li>
+    <li style="background-Color: brown;" onclick="changeColorStroke(13)"></li>
+    <li style="background-Color: white;" onclick="changeColorStroke(14)"></li>
 
   </ul>
 

@@ -145,8 +145,9 @@ function init() {
 
 let changeColorStroke = function (num) {
   console.log("colorChange");
-  let colors = ["black","green","red","blue","pink","","","","","","","","",]
+  let colors = ["black","green","red","blue","purple","#ff3399","yellow","orange","#66ff33","#ff1a1a","#00ffff","#ff99ff","#ff33cc","brown","white"]
 
+  colorStroke = colors[num];
 }
 
 let showColorPallet = function () {
