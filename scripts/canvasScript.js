@@ -132,7 +132,7 @@ li[4].style.color = "black";
 
 function init() {
 
-
+  startAudio()
     canvas = document.getElementById('sketchpad');
     //addColors();
     // If the browser supports the canvas tag, get the 2d drawing context for this canvas
@@ -556,7 +556,7 @@ let clearCanvas = function (canvas,ctx) {
 
 }
 
-let playSound = function (num) {
+/*let playSound = function (num) {
 
     switch (num) {
       case 1:
@@ -569,6 +569,26 @@ let playSound = function (num) {
         break;
     }
 
+}*/
+function startAudio(){
+    var audio = new Audio('sounds/rollover3.ogg');
+    var self = this;
+    //not sure if you need this, but it's better to be safe
+    self.audio = audio;
+    var startAudio = function(){
+                         self.audio.play();
+                         document.removeEventListener("touchstart", self.startAudio, false);
+                     }
+    self.startAudio = startAudio;
+
+    var pauseAudio = function(){
+                         self.audio.pause();
+                         self.audio.removeEventListener("play", self.pauseAudio, false);
+                     }
+    self.pauseAudio = pauseAudio;
+
+    document.addEventListener("touchstart", self.startAudio, false);
+    self.audio.addEventListener("play", self.pauseAudio, false);
 }
 
 let playAudio = function () {
