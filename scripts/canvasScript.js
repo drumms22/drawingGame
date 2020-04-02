@@ -528,6 +528,7 @@ let randomNumbers = function(max){
 }
 
 let btnClear = function () {
+  drawingCorrect = false;
   hideImg();
   clearCanvas(canvas, ctx);
 }
