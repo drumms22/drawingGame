@@ -588,7 +588,7 @@ function startAudio(){
                      }
     self.pauseAudio = pauseAudio;
 
-    //window.addEventListener("touchstart", self.startAudio, false);
+    window.addEventListener("touchstart", self.startAudio, false);
     window.addEventListener("mousedown", self.startAudio, false);
     console.log("audio");
     //self.audio.addEventListener("play", self.pauseAudio, false);
