@@ -42,14 +42,14 @@ function drawDot(ctx,x,y,size) {
 
 
 function sketchpad_mouseDown() {
-  soundEffect.play();
+
     mouseDown=1;
     drawDot(ctx,mouseX,mouseY,55);
 }
 
 
 function sketchpad_mouseUp() {
-  soundEffect.play();
+
     mouseDown=0;
 }
 
@@ -66,7 +66,7 @@ function sketchpad_mouseMove(e) {
 
 
 function getMousePos(e) {
-  soundEffect.play();
+
     if (!e)
         var e = event;
 
@@ -82,7 +82,7 @@ function getMousePos(e) {
 
 
 function sketchpad_touchStart() {
-  soundEffect.play();
+
     getTouchPos();
 
     drawDot(ctx,touchX,touchY,55);
@@ -105,7 +105,7 @@ function sketchpad_touchMove(e) {
 
 
 function getTouchPos(e) {
-  soundEffect.play();
+
     if (!e)
         var e = event;
 
@@ -160,7 +160,7 @@ let changeColorStroke = function (num) {
 }
 
 let showColorPallet = function () {
-  playSound(1);
+  //playSound(1);
   if(document.getElementById("hiddenPanel2").classList.contains("slideIn")){
     document.getElementById("hiddenPanel2").classList.remove("slideIn");
   }
@@ -169,7 +169,7 @@ let showColorPallet = function () {
 
 }
 let showLetterPallet = function () {
-  playSound(1);
+  //playSound(1);
   if(document.getElementById("hiddenPanel1").classList.contains("slideIn")){
     document.getElementById("hiddenPanel1").classList.remove("slideIn");
   }
@@ -242,9 +242,9 @@ let hideImg = function () {
 let btnGetLetter = function (num) {
 
   if(num === -1){
-    playSound(2);
+    //playSound(2);
   }else{
-    playSound(2);
+    //playSound(2);
   }
   getLetter(num);
 
@@ -542,7 +542,7 @@ let randomNumbers = function(max){
 }
 
 let btnClear = function () {
-  playSound(1);
+  //playSound(1);
   imgArray= [];
   drawingCorrect = false;
   hideImg();
@@ -578,6 +578,7 @@ function startAudio(){
     var startAudio = function(){
                          self.audio.play();
                          document.removeEventListener("touchstart", self.startAudio, false);
+                        // document.removeEventListener("mousedown", self.startAudio, false);
                      }
     self.startAudio = startAudio;
 
@@ -587,8 +588,10 @@ function startAudio(){
                      }
     self.pauseAudio = pauseAudio;
 
-    document.addEventListener("touchstart", self.startAudio, false);
-    self.audio.addEventListener("play", self.pauseAudio, false);
+    //window.addEventListener("touchstart", self.startAudio, false);
+    window.addEventListener("mousedown", self.startAudio, false);
+    console.log("audio");
+    //self.audio.addEventListener("play", self.pauseAudio, false);
 }
 
 let playAudio = function () {
