@@ -6,32 +6,30 @@
   </head>
   <body>
 
-    <button type="button" id="btn" onclick="startAudio()" name="button">button</button>
+    <button type="button" id="btn" name="button">button</button>
     <script type="text/javascript">
-    function startAudio(){
-        var audio = new Audio('sounds/rollover3.ogg');
-        var self = this;
-        //not sure if you need this, but it's better to be safe
-        self.audio = audio;
-        var startAudio = function(){
-                             self.audio.play();
-                             document.removeEventListener("click", self.startAudio, false);
-                            // document.removeEventListener("mousedown", self.startAudio, false);
-                         }
-        self.startAudio = startAudio;
+        let audio = new Audio('sounds/rollover3.ogg');
+      let playButton = document.getElementById("btn");
+      let audioBool = false;
 
-        var pauseAudio = function(){
-                             self.audio.pause();
-                             self.audio.removeEventListener("play", self.pauseAudio, false);
-                         }
-        self.pauseAudio = pauseAudio;
+      playButton.addEventListener("click", handlePlayButton, false);
+      playVideo();
 
-        window.addEventListener("click", self.startAudio, false);
-        window.addEventListener("click", self.startAudio, false);
-        console.log("audio");
-        //self.audio.addEventListener("play", self.pauseAudio, false);
-    }
+      async function playVideo() {
+        try {
+          await audio.play();
+          //playButton.classList.add("playing");
+        } catch(err) {
+        //  playButton.classList.remove("playing");
+          alert("error");
+        }
+      }
 
+      function handlePlayButton() {
+        if (audioBool === false) {
+          playVideo();
+        } 
+      }
     </script>
   </body>
 </html>
