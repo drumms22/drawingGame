@@ -320,31 +320,7 @@ function init() {
     }
 }
 
-let changeColorStroke = function (num) {
-  console.log("colorChange");
-  switch (num) {
-    case 1:
-        colorStroke = "black";
-      break;
-    case 2:
-        colorStroke = "green";
-      break;
-    case 3:
-        colorStroke = "red";
-      break;
-    case 4:
-        colorStroke = "blue";
-      break;
-    case 5:
-        colorStroke = "yellow";
-      break;
 
-    default:
-
-        colorStroke = "black";
-  }
-
-}
 let checkCanvas = function () {
   let count = 0;
   console.log("canvas check....");

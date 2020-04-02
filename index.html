@@ -25,12 +25,10 @@
   border-radius:4px;
 }
 .rightside {
-  float:left;
-  margin-left:10px;
+  margin-left:2.5%;
   position: relative;
 }
 #sketchpad {
-  float:left;
   height:700px;
   width: 950px;
   border:2px solid #888;
@@ -56,6 +54,45 @@
   align-items: center;
   font-family: 'Montserrat', sans-serif;
 }
+#controlPanel {
+  width: 50%;
+  position: fixed;
+  bottom: 0;
+  left: 25%;
+  background-color: gray;
+  border-left: 3px solid black;
+  border-top: 3px solid black;
+  border-right: 3px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#colorPallet {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#colorList {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#colorList li {
+  width: 100%;
+  border: 1px solid black;
+  color: white;
+  transition: .25s;
+  text-align: center;
+}
+#colorList li:hover {
+  background-color: white!important;
+  color: black;
+  cursor: pointer;
+}
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
 </head>
@@ -68,6 +105,24 @@
           <canvas id="sketchpad"  height="700" width="950">
           </canvas>
       </div>
+  </div>
+
+  <div id="controlPanel">
+
+    <div id="colorPallet">
+
+      <ul id="colorList">
+
+        <li style="background-Color: black;" onclick="changeColorStroke(1)">Black</li>
+        <li style="background-Color: green;" onclick="changeColorStroke(2)">Green</li>
+        <li style="background-Color: red;" onclick="changeColorStroke(3)">Red</li>
+        <li style="background-Color: blue;" onclick="changeColorStroke(4)">Blue</li>
+        <li style="background-Color: yellow;color: black;" onclick="changeColorStroke(5)">Yellow</li>
+
+      </ul>
+
+    </div>
+
   </div>
       <script src="scripts/canvasScript.js"></script>
 </body>
