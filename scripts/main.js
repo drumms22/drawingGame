@@ -166,13 +166,6 @@ let letterB = [
 for (var i = 0; i < letterA.length; i++) {
   arr.push(letterA[i]);
 }
-/*for (var i = 0; i < arr.length; i++) {
-  let canvas = document.getElementById("imgCanvas");
-  var ctx = canvas.getContext("2d");
-  ctx.beginPath();
-  ctx.arc(arr[i].x, arr[i].y, 15, 0, 2 * Math.PI);
-  ctx.fill();
-}*/
 }
 
 /*let createStroke = function (x,y) {
