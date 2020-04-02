@@ -170,7 +170,7 @@ let showLetterPallet = function () {
   }
   document.getElementById("hiddenPanel2").classList.toggle("slideIn");
 
-
+  console.log("stuff");
 }
 
 let checkCoordinates = function (posx, posy) {
