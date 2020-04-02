@@ -1,7 +1,7 @@
 var canvas,ctx;
 let imgArray = [];
 let arr = [];
-let memoryArr = [];
+let letterNum = -1;
 let count = 0;
 let drawingCorrect = false;
 let colorStroke = "black";
@@ -34,9 +34,9 @@ function drawDot(ctx,x,y,size) {
 
 
 let clearCanvas = function (canvas,ctx) {
-    for (var i = 0; i < arr.length; i++) {
+    /*for (var i = 0; i < arr.length; i++) {
       arr[i].bool = false;
-    }
+    }*/
     imgArray= [];
     drawingCorrect = false;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -499,6 +499,7 @@ if(num > -1){
     arr.push(letterCoordsArr[num][i]);
   }
   document.getElementById("letterLayer").innerHTML =letters[num];
+  letterNum = num;
 }else{
 
 for (var i = 0; i < 1; i++) {
@@ -512,6 +513,7 @@ for (var i = 0; i < 1; i++) {
 }
   //memoryArr = arr;
   document.getElementById("letterLayer").innerHTML = letters[rand];
+  letterNum = rand;
 }
 }
   console.log(arr);
@@ -530,5 +532,6 @@ let randomNumbers = function(max){
 let btnClear = function () {
   drawingCorrect = false;
   hideImg();
+  getLetter(letterNum);
   clearCanvas(canvas, ctx);
 }
