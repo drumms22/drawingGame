@@ -560,11 +560,11 @@ let playSound = function (num) {
 
     switch (num) {
       case 1:
-      var audio = new Audio('sounds/rollover3.gg');
+      var audio = new Audio('sounds/rollover3.ogg');
         audio.play();
         break;
       case 2:
-        var audio = new Audio('sounds/rollover3.gg');
+        var audio = new Audio('sounds/rollover3.ogg');
         audio.play();
         break;
     }
