@@ -1,6 +1,7 @@
 var canvas,ctx;
 let imgArray = [];
 let arr = [];
+let memoryArr = [];
 let count = 0;
 let drawingCorrect = false;
 let colorStroke = "black";
@@ -32,8 +33,11 @@ function drawDot(ctx,x,y,size) {
 }
 
 
-function clearCanvas(canvas,ctx) {
-
+let clearCanvas = function (canvas,ctx) {
+    for (var i = 0; i < arr.length; i++) {
+      arr[i].bool = false;
+    }
+    imgArray= [];
     drawingCorrect = false;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -506,7 +510,8 @@ for (var i = 0; i < 1; i++) {
     arr.push(letterCoordsArr[rand][j]);
 
 }
-  document.getElementById("letterLayer").innerHTML =letters[rand];
+  //memoryArr = arr;
+  document.getElementById("letterLayer").innerHTML = letters[rand];
 }
 }
   console.log(arr);
