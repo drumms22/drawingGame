@@ -33,20 +33,6 @@ function drawDot(ctx,x,y,size) {
 }
 
 
-let clearCanvas = function (canvas,ctx) {
-    /*for (var i = 0; i < arr.length; i++) {
-      arr[i].bool = false;
-    }*/
-
-    console.log(arr);
-    console.log(imgArray);
-    console.log(letterNum);
-    console.log(drawingCorrect);
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-}
-
 
 function sketchpad_mouseDown() {
     mouseDown=1;
@@ -539,4 +525,18 @@ let btnClear = function () {
   hideImg();
   getLetter(letterNum);
   clearCanvas(canvas, ctx);
+}
+
+let clearCanvas = function (canvas,ctx) {
+    /*for (var i = 0; i < arr.length; i++) {
+      arr[i].bool = false;
+    }*/
+
+    console.log(arr);
+    console.log(imgArray);
+    console.log(letterNum);
+    console.log(drawingCorrect);
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 }
