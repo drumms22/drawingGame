@@ -30,7 +30,7 @@ function clearCanvas(canvas,ctx) {
 
 function sketchpad_mouseDown() {
     mouseDown=1;
-    drawDot(ctx,mouseX,mouseY,55);
+    drawDot(ctx,mouseX-50,mouseY,55);
 }
 
 
@@ -45,7 +45,7 @@ function sketchpad_mouseMove(e) {
 
 
     if (mouseDown==1) {
-        drawDot(ctx,mouseX,mouseY,55);
+        drawDot(ctx,mouseX-50,mouseY,55);
     }
 }
 
