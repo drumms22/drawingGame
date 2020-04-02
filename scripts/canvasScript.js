@@ -137,7 +137,7 @@ function init() {
 
     if (ctx) {
 
-        getLetter();
+        getLetter(-1);
         canvas.addEventListener('mousedown', sketchpad_mouseDown, false);
         canvas.addEventListener('mousemove', sketchpad_mouseMove, false);
         window.addEventListener('mouseup', sketchpad_mouseUp, false);
@@ -156,16 +156,19 @@ let changeColorStroke = function (num) {
 
 let showColorPallet = function () {
 
-  if(!document.getElementById("colorList").style.display || document.getElementById("colorList").style.display === "none"){
-
-    document.getElementById("colorList").style.display = "flex";
-
-  }else{
-
-    document.getElementById("colorList").style.display = "none";
-
+  if(document.getElementById("hiddenPanel2").classList.contains("slideIn")){
+    document.getElementById("hiddenPanel2").classList.remove("slideIn");
   }
-  document.getElementById("hiddenPanel").classList.toggle("slideIn");
+  document.getElementById("hiddenPanel1").classList.toggle("slideIn");
+
+
+}
+let showLetterPallet = function () {
+
+  if(document.getElementById("hiddenPanel1").classList.contains("slideIn")){
+    document.getElementById("hiddenPanel1").classList.remove("slideIn");
+  }
+  document.getElementById("hiddenPanel2").classList.toggle("slideIn");
 
 
 }
@@ -222,12 +225,12 @@ let hideImg = function () {
 
 }
 
-let getLetter = function () {
+let getLetter = function (num) {
 hideImg();
 clearCanvas(canvas, ctx);
 imgArray = [];
 arr = [];
-let num = 0;
+
 let letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
 
@@ -344,6 +347,14 @@ let letterZ = [];
 
 let letterCoordsArr = [letterA,letterB,letterC, letterD, letterE, letterF, letterG, letterH, letterI, letterJ];
 
+if(num > -1){
+
+  for (var i = 0; i < letterCoordsArr[num].length; i++) {
+    arr.push(letterCoordsArr[num][i]);
+  }
+  document.getElementById("letterLayer").innerHTML =letters[num];
+}else{
+
 for (var i = 0; i < 1; i++) {
 
   let rand = randomNumbers(letterCoordsArr.length);
@@ -354,6 +365,7 @@ for (var i = 0; i < 1; i++) {
 
 }
   document.getElementById("letterLayer").innerHTML =letters[rand];
+}
 }
   console.log(arr);
 }
