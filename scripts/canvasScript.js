@@ -38,6 +38,11 @@ let clearCanvas = function (canvas,ctx) {
       arr[i].bool = false;
     }*/
 
+    console.log(arr);
+    console.log(imgArray);
+    console.log(letterNum);
+    console.log(drawingCorrect);
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 }
