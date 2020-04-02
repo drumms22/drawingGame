@@ -17,7 +17,7 @@ function drawDot(ctx,x,y,size) {
   console.log("{ x: " + x + ", y: " + y + ", bool: false },");
 
     if(window.innerHeight < window.innerWidth){
-      x-=50;
+      x-=55;
     }
     ctx.fillStyle = colorStroke;
 
