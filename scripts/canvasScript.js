@@ -149,7 +149,7 @@ let changeColorStroke = function (num) {
 }
 
 let showColorPallet = function () {
-
+  playSound(1);
   if(document.getElementById("hiddenPanel2").classList.contains("slideIn")){
     document.getElementById("hiddenPanel2").classList.remove("slideIn");
   }
@@ -158,7 +158,7 @@ let showColorPallet = function () {
 
 }
 let showLetterPallet = function () {
-
+  playSound(1);
   if(document.getElementById("hiddenPanel1").classList.contains("slideIn")){
     document.getElementById("hiddenPanel1").classList.remove("slideIn");
   }
@@ -225,6 +225,17 @@ let hideImg = function () {
   document.getElementById("popUp").classList.remove("spinner");
 
   setTimeout(function () { document.getElementById("popUp").style.display = "none";},2000);
+
+}
+
+let btnGetLetter = function (num) {
+
+  if(num === -1){
+    playSound(2);
+  }else{
+    playSound(2);
+  }
+  getLetter(num);
 
 }
 
@@ -520,11 +531,8 @@ let randomNumbers = function(max){
 }
 
 let btnClear = function () {
+  playSound(1);
   imgArray= [];
-  console.log(arr);
-  console.log(imgArray);
-  console.log(letterNum);
-  console.log(drawingCorrect);
   drawingCorrect = false;
   hideImg();
   getLetter(letterNum);
@@ -532,11 +540,22 @@ let btnClear = function () {
 }
 
 let clearCanvas = function (canvas,ctx) {
-    /*for (var i = 0; i < arr.length; i++) {
-      arr[i].bool = false;
-    }*/
-
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+}
+
+let playSound = function (num) {
+
+    switch (num) {
+      case 1:
+        var audio = new Audio('sounds/click1.OGG');
+        audio.play();
+        break;
+      case 2:
+        var audio = new Audio('sounds/rollover3.OGG');
+        audio.play();
+        break;
+    }
 
 }
