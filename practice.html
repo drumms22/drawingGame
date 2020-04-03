@@ -3,14 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script type="text/javascript">
-    var ping = new Audio("sounds/rollover3.mp3");
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.3/howler.min.js"></script>
+    <script>
+    var sound = new Howl({
+      src: ['sounds/rollover3.mp3']
+    });
+  </script>
+
   </head>
   <body>
 
 
-    <button type="button" id="btn" onclick="ping.play();" name="button">button</button>
+    <button type="button" id="btn" onclick="sound.play();" name="button">button</button>
 
     <script type="text/javascript">
     </script>
