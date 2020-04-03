@@ -6,30 +6,18 @@
   </head>
   <body>
 
+
     <button type="button" id="btn" name="button">button</button>
+
+
     <script type="text/javascript">
-        let audio = new Audio('sounds/rollover3.ogg');
+      let audio = new Audio('sounds/rollover3.ogg');
       let playButton = document.getElementById("btn");
-      let audioBool = false;
 
-      playButton.addEventListener("click", handlePlayButton, false);
-      playVideo();
 
-      async function playVideo() {
-        try {
-          await audio.play();
-          //playButton.classList.add("playing");
-        } catch(err) {
-        //  playButton.classList.remove("playing");
-          alert("error");
-        }
-      }
-
-      function handlePlayButton() {
-        if (audioBool === false) {
-          playVideo();
-        } 
-      }
+      var blasterTrigger = document.querySelector("#btn");
+        blasterTrigger.addEventListener("click", function(){
+      audio.play();});
     </script>
   </body>
 </html>
