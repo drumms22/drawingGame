@@ -269,6 +269,7 @@ let btnGetLetter = function (num) {
 }
 
 let getLetter = function (num) {
+drawingCorrect = false;
 hideImg();
 clearCanvas(canvas, ctx);
 imgArray = [];
