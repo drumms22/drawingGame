@@ -5,9 +5,30 @@ let letterNum = -1;
 let count = 0;
 let drawingCorrect = false;
 let colorStroke = "black";
-const soundEffect = new Audio();
-let audioBool = false;
 
+const btnClickSound = new Howl({
+  src: ['sounds/click1.mp3']
+});
+
+const paintClickSound = new Howl({
+  src: ['sounds/rollover3.mp3']
+});
+
+const letterClickSound = new Howl({
+  src: ['sounds/switch1.mp3']
+});
+
+const elementMaxSound = new Howl({
+  src: ['sounds/maximize_003.mp3']
+});
+
+const elementMinSound = new Howl({
+  src: ['sounds/minimize_003.mp3']
+});
+
+const popUpSound = new Howl({
+  src: ['sounds/levelUp.wav']
+});
 // onClick of first interaction on page before I need the sounds
 //soundEffect.play();
 
@@ -93,7 +114,7 @@ function sketchpad_touchStart() {
 
 
 function sketchpad_touchMove(e) {
-  soundEffect.play();
+
     getTouchPos(e);
 
 
@@ -132,7 +153,6 @@ li[4].style.color = "black";
 
 function init() {
 
-  startAudio()
     canvas = document.getElementById('sketchpad');
     //addColors();
     // If the browser supports the canvas tag, get the 2d drawing context for this canvas
@@ -153,29 +173,31 @@ function init() {
 }
 
 let changeColorStroke = function (num) {
+
+  paintClickSound.play();
   console.log("colorChange");
   let colors = ["black","green","red","blue","purple","#ff3399","yellow","orange","#66ff33","#ff1a1a","#00ffff","#ff99ff","#ff33cc","brown","white"]
 
   colorStroke = colors[num];
 }
 
-let showColorPallet = function () {
-  //playSound(1);
-  if(document.getElementById("hiddenPanel2").classList.contains("slideIn")){
-    document.getElementById("hiddenPanel2").classList.remove("slideIn");
-  }
-  document.getElementById("hiddenPanel1").classList.toggle("slideIn");
+let openPanel = function (num) {
 
+  let element = document.getElementById("hiddenPanel" + num);
+
+  if (element.classList.contains("slideIn")) {
+    elementMinSound.play();
+    element.classList.remove("slideIn");
+  }else{
+
+
+  for (var i = 1; i < 3; i++) {
+    document.getElementById("hiddenPanel" + i).classList.remove("slideIn");
+    }
+  elementMaxSound.play();
+  element.classList.add("slideIn");
 
 }
-let showLetterPallet = function () {
-  //playSound(1);
-  if(document.getElementById("hiddenPanel1").classList.contains("slideIn")){
-    document.getElementById("hiddenPanel1").classList.remove("slideIn");
-  }
-  document.getElementById("hiddenPanel2").classList.toggle("slideIn");
-
-  console.log("stuff");
 }
 
 let checkCoordinates = function (posx, posy) {
@@ -220,7 +242,7 @@ let displayImg = function () {
     rand = 1;
 
   }
-
+  popUpSound.play();
   document.getElementById("popUp").style.display = "block";
   document.getElementById("popUp").innerHTML = "<img src='images/happy" + rand + ".jpg' class='imgStyles' id='imgHappy' alt='Smiley face picture for kids'>";
   document.getElementById("popUp").classList.add("spinner");
@@ -241,11 +263,7 @@ let hideImg = function () {
 
 let btnGetLetter = function (num) {
 
-  if(num === -1){
-    //playSound(2);
-  }else{
-    //playSound(2);
-  }
+  letterClickSound.play();
   getLetter(num);
 
 }
@@ -528,7 +546,6 @@ for (var i = 0; i < 1; i++) {
   letterNum = rand;
 }
 }
-  console.log(arr);
 }
 
 
@@ -542,7 +559,7 @@ let randomNumbers = function(max){
 }
 
 let btnClear = function () {
-  //playSound(1);
+  btnClickSound.play();
   imgArray= [];
   drawingCorrect = false;
   hideImg();
@@ -553,53 +570,5 @@ let btnClear = function () {
 let clearCanvas = function (canvas,ctx) {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-}
-
-/*let playSound = function (num) {
-
-    switch (num) {
-      case 1:
-      var audio = new Audio('sounds/rollover3.ogg');
-        audio.play();
-        break;
-      case 2:
-        var audio = new Audio('sounds/rollover3.ogg');
-        audio.play();
-        break;
-    }
-
-}*/
-function startAudio(){
-    var audio = new Audio('sounds/rollover3.mp3');
-    var self = this;
-    //not sure if you need this, but it's better to be safe
-    self.audio = audio;
-    var startAudio = function(){
-                         self.audio.play();
-                         document.removeEventListener("touchstart", self.startAudio, false);
-                         document.removeEventListener("mousedown", self.startAudio, false);
-                     }
-    self.startAudio = startAudio;
-
-    var pauseAudio = function(){
-                         self.audio.pause();
-                         self.audio.removeEventListener("play", self.pauseAudio, false);
-                     }
-    self.pauseAudio = pauseAudio;
-
-    document.addEventListener("touchstart", self.startAudio, false);
-    document.addEventListener("mousedown", self.startAudio, false);
-    console.log("audio");
-    //self.audio.addEventListener("play", self.pauseAudio, false);
-}
-
-let playAudio = function () {
-
-  if (playAudio === false) {
-
-    soundEffect.play();
-
-  }
 
 }
