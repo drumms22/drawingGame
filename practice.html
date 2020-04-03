@@ -7,17 +7,34 @@
   <body>
 
 
-    <button type="button" id="btn" name="button">button</button>
+    <button type="button" id="btn" onclick="soundNotification()"name="button">button</button>
 
 
     <script type="text/javascript">
-      let audio = new Audio('sounds/rollover3.ogg');
-      let playButton = document.getElementById("btn");
 
+      function unlockAudio() {
+    const sound = new Audio('sounds/rollover3.ogg');
 
-      var blasterTrigger = document.querySelector("#btn");
-        blasterTrigger.addEventListener("click", function(){
-      audio.play();});
+    sound.play();
+    sound.pause();
+    sound.currentTime = 0;
+
+    document.body.removeEventListener('click', unlockAudio)
+    document.body.removeEventListener('touchstart', unlockAudio)
+}
+
+document.body.addEventListener('click', unlockAudio);
+document.body.addEventListener('touchstart', unlockAudio);
+
+function soundNotification() {
+    const sound = new Audio('sounds/rollover3.ogg');
+
+    const promisse = sound.play();
+
+    if (promisse !== undefined) {
+        promisse.then(() => {}).catch(error => alert("error"));
+    }
+}
     </script>
   </body>
 </html>
