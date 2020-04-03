@@ -7,34 +7,15 @@
   <body>
 
 
-    <button type="button" id="btn" onclick="soundNotification()"name="button">button</button>
+    <button type="button" id="btn" onclick="bleep.play()"name="button">button</button>
 
-
+    <audio id="audio" controls="none">
+<source src='sounds/rollover3.mp3' />
+</audio>
     <script type="text/javascript">
+    let bleep = new Audio();
+    bleep.src = "sounds/rollover3.mp3";
 
-      function unlockAudio() {
-    const sound = new Audio('sounds/rollover3.ogg');
-
-    sound.play();
-    sound.pause();
-    sound.currentTime = 0;
-
-    document.body.removeEventListener('click', unlockAudio)
-    document.body.removeEventListener('touchstart', unlockAudio)
-}
-
-document.body.addEventListener('click', unlockAudio);
-document.body.addEventListener('touchstart', unlockAudio);
-
-function soundNotification() {
-    const sound = new Audio('sounds/rollover3.ogg');
-
-    const promisse = sound.play();
-
-    if (promisse !== undefined) {
-        promisse.then(() => {}).catch(error => alert("error"));
-    }
-}
     </script>
   </body>
 </html>

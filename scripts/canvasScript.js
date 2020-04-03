@@ -571,14 +571,14 @@ let clearCanvas = function (canvas,ctx) {
 
 }*/
 function startAudio(){
-    var audio = new Audio('sounds/rollover3.ogg');
+    var audio = new Audio('sounds/rollover3.mp3');
     var self = this;
     //not sure if you need this, but it's better to be safe
     self.audio = audio;
     var startAudio = function(){
                          self.audio.play();
                          document.removeEventListener("touchstart", self.startAudio, false);
-                        // document.removeEventListener("mousedown", self.startAudio, false);
+                         document.removeEventListener("mousedown", self.startAudio, false);
                      }
     self.startAudio = startAudio;
 
