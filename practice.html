@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script type="text/javascript">
+    var ping = new Audio("sounds/rollover3.mp3");
+    </script>
   </head>
   <body>
 
@@ -10,11 +13,10 @@
     <button type="button" id="btn" name="button">button</button>
 
     <script type="text/javascript">
-    var ping = new Audio("sounds/rollover3.mp3");
 document.querySelector("#btn").addEventListener("click", function() {
 
     // ping clicked, play ping sound:
-    ping.play()
+    ping.play();
 })
     </script>
   </body>
