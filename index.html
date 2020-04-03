@@ -7,6 +7,7 @@
 
 <style>
 /* Some CSS styling */
+
 #main {
   position: relative;
   width: 100%;
@@ -222,7 +223,71 @@ margin-left: 0;
   to {bottom: 50px;}
 
 }
+@media screen and (orientation:portrait)
+{
 
+  #controlPanel {
+    width: 100%;
+    left: 0;
+    height: 200px;
+    border-left: none;
+    border-right: none;
+  }
+  #hiddenPanel1 {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: -160px;
+    left: 5%;
+    height: 350px;
+
+  }
+  #hiddenPanel2 {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: -160px;
+    left: 5%;
+    height: 350px;
+  }
+  #colorList {
+    flex-wrap: wrap;
+  }
+  #colorList li {
+    width: 10%;
+    height: 70px;
+    border: 2px solid black;
+    transition: .25s;
+    margin-left: .7%;
+    margin-top: 1%;
+  }
+  #letterList1 li {
+    width: 6%;
+    background-color: white;
+    height: 50px;
+    margin-top: 1.5%;
+    text-align: center;
+    font-size: 4vw;
+    border: 2px solid black;
+  }
+  #palletIcon,#letterIcon {
+    font-size: 150px;
+  }
+  .palletIcon {
+  margin-left: 15%;
+  }
+  .btnStyles {
+    height: 100px;
+    font-size: 3vw;
+    margin-top: 50px;
+    width: 38%;
+    margin-left: 5%;
+  }
+}
 @media screen and (orientation:landscape)
 {
   .rightside {
@@ -253,8 +318,8 @@ margin-left: 0;
 
     <div id="iconColorPallet">
 
-      <i id="palletIcon" class="fas fa-palette fa-3x palletIcon" onclick="openPanel(1)"></i>
-      <i class="fas fa-font fa-3x palletIcon" onclick="openPanel(2)"></i>
+      <i id="palletIcon" class="fas fa-palette fa-3x palletIcon"  onclick="openPanel(1)"></i>
+      <i id="letterIcon" class="fas fa-font fa-3x palletIcon" onclick="openPanel(2)"></i>
 
     </div>
 
@@ -308,11 +373,6 @@ margin-left: 0;
     <li onclick="btnGetLetter(10)">K</li>
     <li onclick="btnGetLetter(11)">L</li>
     <li onclick="btnGetLetter(12)">M</li>
-
-  <!--</ul>
-
-  <ul id="letterList2" class="letterList">-->
-
     <li onclick="btnGetLetter(13)">N</li>
     <li onclick="btnGetLetter(14)">O</li>
     <li onclick="btnGetLetter(15)">P</li>
