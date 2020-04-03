@@ -13,8 +13,10 @@
 <source src='sounds/rollover3.mp3' />
 </audio>
     <script type="text/javascript">
-    let bleep = new Audio();
-    bleep.src = "sounds/rollover3.mp3";
+    let bleep;
+    window.onload = function () {
+      bleep = document.getElementById("audio");
+    }
 
     </script>
   </body>
