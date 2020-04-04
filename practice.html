@@ -3,20 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.3/howler.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/canvas-layout.css">
     <script>
-    var sound = new Howl({
-      src: ['sounds/rollover3.mp3']
-    });
   </script>
 
   </head>
-  <body>
+  <body onload="init()">
 
+    <div class="rightside" style="width: 100%;display: flex; flex-direction: column;align-items: center;">
 
+      <div id="popUp"></div>
+        <div id="letterLayer"style="margin-left: 0;border: none;border-bottom: 1px solid black;box-shadow: 0 4px 2px -2px gray;">Z</div>
+        <canvas id="sketchpad"  style="margin-left: 0;border: none;border-bottom: 1px solid black;box-shadow: 0 4px 2px -2px gray;" height="700" width="1000">
+        </canvas>
+    </div>
+</div>
     <button type="button" id="btn" onclick="sound.play();" name="button">button</button>
 
-    <script type="text/javascript">
-    </script>
+    <script src="scripts/practice.js"></script>
   </body>
 </html>

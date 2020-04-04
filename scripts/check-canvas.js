@@ -28,8 +28,10 @@ let hideImg = function () {
 }
 
 let checkCoordinates = function (posx, posy) {
+
   imgArray.push({x:posx,y:posy});
   for (var i = 0; i < arr.length; i++) {
+    console.log(arr[i].bool);
     if(posx >= (arr[i].x - 20) && posx <= (arr[i].x + 20) && arr[i].bool === false){
 
       if(posy >= (arr[i].y - 20) && posy <= (arr[i].y + 20)){
@@ -54,6 +56,7 @@ let checkCanvas = function () {
   }
 
   if (count === 0) {
+
     drawingCorrect = true;
     displayImg();
   }

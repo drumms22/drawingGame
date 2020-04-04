@@ -46,23 +46,60 @@
 
   <ul id="colorList">
 
-    <li style="background-Color: black;" onclick="changeColorStroke(0)"></li>
-    <li style="background-Color: green;" onclick="changeColorStroke(1)"></li>
-    <li style="background-Color: red;" onclick="changeColorStroke(2)"></li>
-    <li style="background-Color: blue;" onclick="changeColorStroke(3)"></li>
-    <li style="background-Color: purple;" onclick="changeColorStroke(4)"></li>
-    <li style="background-Color: #ff3399;" onclick="changeColorStroke(5)"></li>
-    <li style="background-Color: yellow;"  onclick="changeColorStroke(6)"></li>
-    <li style="background-Color: orange;" onclick="changeColorStroke(7)"></li>
-    <li style="background-Color: #66ff33;" onclick="changeColorStroke(8)"></li>
-    <li style="background-Color: #ff1a1a;" onclick="changeColorStroke(9)"></li>
-    <li style="background-Color: #00ffff;" onclick="changeColorStroke(10)"></li>
-    <li style="background-Color: #ff99ff;" onclick="changeColorStroke(11)"></li>
-    <li style="background-Color: #ff33cc;" onclick="changeColorStroke(12)"></li>
-    <li style="background-Color: brown;" onclick="changeColorStroke(13)"></li>
-    <li style="background-Color: white;" onclick="changeColorStroke(14)"></li>
+    <li style="background-Color:#800000;" onclick="changeColorStroke(0)"></li>
+    <li style="background-Color: #cc0000;" onclick="changeColorStroke(1)"></li>
+    <li style="background-Color: #990033;" onclick="changeColorStroke(2)"></li>
+    <li style="background-Color: #e6004c;" onclick="changeColorStroke(3)"></li>
+    <li style="background-Color: #ff0000;" onclick="changeColorStroke(4)"></li>
+    <li style="background-Color: #ff3333;" onclick="changeColorStroke(5)"></li>
+    <li style="background-Color: #cc2900;"  onclick="changeColorStroke(6)"></li>
+    <li style="background-Color: #ff3300;" onclick="changeColorStroke(7)"></li>
+    <li style="background-Color: #ff531a;" onclick="changeColorStroke(8)"></li>
+    <li style="background-Color: #ff751a;" onclick="changeColorStroke(9)"></li>
+    <li style="background-Color: #ffb380;" onclick="changeColorStroke(10)"></li>
+    <li style="background-Color: #ffcc00;" onclick="changeColorStroke(11)"></li>
+    <li style="background-Color: #ffdb4d;" onclick="changeColorStroke(12)"></li>
+    <li style="background-Color: #ffff00;" onclick="changeColorStroke(13)"></li>
+    <li style="background-Color: #ffff4d;" onclick="changeColorStroke(14)"></li>
+    <li style="background-Color: #ffff66;" onclick="changeColorStroke(15)"></li>
+    <li style="background-Color: #336600;" onclick="changeColorStroke(16)"></li>
+    <li style="background-Color: #33cc33;" onclick="changeColorStroke(17)"></li>
+    <li style="background-Color: #00ff00;" onclick="changeColorStroke(18)"></li>
+    <li style="background-Color: #66ff33;" onclick="changeColorStroke(19)"></li>
+    <li style="background-Color: #99ff66;" onclick="changeColorStroke(20)"></li>
+    <li style="background-Color: #003366;"  onclick="changeColorStroke(21)"></li>
+    <li style="background-Color: #0047b3;" onclick="changeColorStroke(22)"></li>
+    <li style="background-Color: #0066ff;" onclick="changeColorStroke(23)"></li>
+    <li style="background-Color: #0080ff;" onclick="changeColorStroke(24)"></li>
+    <li style="background-Color: #99ccff;" onclick="changeColorStroke(25)"></li>
+    <li style="background-Color: #33ccff;" onclick="changeColorStroke(26)"></li>
+    <li style="background-Color: #6600cc;" onclick="changeColorStroke(27)"></li>
+    <li style="background-Color: #ad33ff;" onclick="changeColorStroke(28)"></li>
+    <li style="background-Color: #9900ff;" onclick="changeColorStroke(29)"></li>
+    <li style="background-Color: #cc00ff;" onclick="changeColorStroke(30)"></li>
+    <li style="background-Color: #ff80ff;" onclick="changeColorStroke(31)"></li>
+    <li style="background-Color: #cc0099;" onclick="changeColorStroke(32)"></li>
+    <li style="background-Color: #cc3399;" onclick="changeColorStroke(33)"></li>
+    <li style="background-Color:  #ff4dd2;" onclick="changeColorStroke(34)"></li>
+    <li style="background-Color: #ff99ff;" onclick="changeColorStroke(35)"></li>
+    <li style="background-Color: #663300;" onclick="changeColorStroke(36)"></li>
+    <li style="background-Color: #b35900;"  onclick="changeColorStroke(37)"></li>
+    <li style="background-Color: #ff8c1a;" onclick="changeColorStroke(38)"></li>
+    <li style="background-Color: #cc9900;" onclick="changeColorStroke(39)"></li>
+    <li style="background-Color: #ffd24d;" onclick="changeColorStroke(40)"></li>
+    <li style="background-Color: #000000;" onclick="changeColorStroke(41)"></li>
+    <li style="background-Color: #595959;" onclick="changeColorStroke(42)"></li>
+    <li style="background-Color:  #a6a6a6;" onclick="changeColorStroke(43)"></li>
+    <li style="background-Color: #f2f2f2;" onclick="changeColorStroke(44)"></li>
+    <li style="background-Color: #ffffff;" onclick="changeColorStroke(45)"></li>
 
   </ul>
+
+  <div class="btnClosePanel">
+
+    <i id="closePanelIcon1" class="fas fa-window-close palletIcon" onclick="closePanel()"></i>
+
+  </div>
 
 </div>
 
@@ -84,6 +121,10 @@
     <li onclick="btnGetLetter(11)">L</li>
     <li onclick="btnGetLetter(12)">M</li>
     <li onclick="btnGetLetter(13)">N</li>
+
+  </ul>
+  <ul id="letterList2" class="letterList">
+
     <li onclick="btnGetLetter(14)">O</li>
     <li onclick="btnGetLetter(15)">P</li>
     <li onclick="btnGetLetter(16)">Q</li>
@@ -99,8 +140,19 @@
 
   </ul>
 
+  <div class="btnClosePanel">
+
+    <i id="closePanelIcon2" class="fas fa-window-close palletIcon" onclick="closePanel()"></i>
+
+  </div>
+
 </div>
 
+<div id="canvasChange">
+
+  <i id="canvasChangeIcon" onclick="changeCanvas()" class="fas fa-share fa-3x " palletIcon></i>
+
+</div>
       <script src="scripts/check-canvas.js"></script>
       <script src="scripts/canvas-main.js"></script>
       <script src="scripts/canvas-letters.js"></script>

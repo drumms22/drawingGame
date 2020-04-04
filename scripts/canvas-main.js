@@ -3,6 +3,8 @@ let drawingCorrect = false;
 let colorStroke = "black";
 var mouseX,mouseY,mouseDown=0;
 var touchX,touchY;
+let canvasChangebool = false;
+let panelOpenBool = false;
 
 const btnClickSound = new Howl({
   src: ['assets/sounds/click1.mp3']
@@ -26,11 +28,9 @@ const elementMinSound = new Howl({
 
 function drawDot(ctx,x,y,size) {
 
-  console.log("{ x: " + x + ", y: " + y + ", bool: false },");
+  //console.log("{ x: " + x + ", y: " + y + ", bool: false },");
+  if(panelOpenBool == true){ closePanel();}
 
-    if(window.innerHeight < window.innerWidth){
-      x-=65;
-    }
     ctx.fillStyle = colorStroke;
 
     ctx.beginPath();
@@ -40,7 +40,8 @@ function drawDot(ctx,x,y,size) {
 
     if(drawingCorrect === false){
     checkCoordinates(x,y);
-  }
+    }
+
 }
 
 
@@ -59,7 +60,7 @@ function sketchpad_mouseUp() {
 
 
 function sketchpad_mouseMove(e) {
-  soundEffect.play();
+
     getMousePos(e);
 
 
@@ -74,14 +75,9 @@ function getMousePos(e) {
     if (!e)
         var e = event;
 
-    if (e.offsetX) {
         mouseX = e.offsetX;
         mouseY = e.offsetY;
-    }
-    else if (e.layerX) {
-        mouseX = e.layerX;
-        mouseY = e.layerY;
-    }
+
  }
 
 
@@ -110,42 +106,46 @@ function sketchpad_touchMove(e) {
 
 function getTouchPos(e) {
 
+    var br = canvas.getBoundingClientRect();
     if (!e)
         var e = event;
 
     if(e.touches) {
         if (e.touches.length == 1) { // Only deal with one finger
             var touch = e.touches[0]; // Get the information for finger #1
-            touchX=touch.pageX-touch.target.offsetLeft;
-            touchY=touch.pageY-touch.target.offsetTop;
+            touchX=touch.clientX-br.left;
+            touchY=touch.clientY-br.top;
         }
     }
 }
 
 let addColors =  function () {
-let li = document.getElementsByTagName("li");
-li[0].style.backgroundColor = "black";
-li[1].style.backgroundColor = "green";
-li[2].style.backgroundColor = "red";
-li[3].style.backgroundColor = "blue";
-li[4].style.backgroundColor = "yellow";
-li[4].style.color = "black";
 
-//checkScreenWidth();
+  let li = document.getElementsByTagName("li");
+  li[0].style.backgroundColor = "black";
+  li[1].style.backgroundColor = "green";
+  li[2].style.backgroundColor = "red";
+  li[3].style.backgroundColor = "blue";
+  li[4].style.backgroundColor = "yellow";
+  li[4].style.color = "black";
+
 }
+
 
 function init() {
 
     canvas = document.getElementById('sketchpad');
-    //addColors();
-    // If the browser supports the canvas tag, get the 2d drawing context for this canvas
+
     if (canvas.getContext)
         ctx = canvas.getContext('2d');
 
 
     if (ctx) {
 
-        getLetter(-1);
+        if(canvasChangebool === false){
+          getLetter(-1);
+        }
+
         canvas.addEventListener('mousedown', sketchpad_mouseDown, false);
         canvas.addEventListener('mousemove', sketchpad_mouseMove, false);
         window.addEventListener('mouseup', sketchpad_mouseUp, false);
@@ -155,16 +155,94 @@ function init() {
     }
 }
 
+window.addEventListener("scroll", function () {
+
+  let elOne = document.getElementById("hiddenPanel1");
+  let elTwo = document.getElementById("hiddenPanel2");
+
+  if(window.innerHeight < window.innerWidth){
+
+
+      elOne.style.position = "absolute";
+      elOne.style.bottom = "-200px";
+      elOne.style.borderBottom = "3px solid black";
+
+      elTwo.style.position = "absolute";
+      elTwo.style.bottom = "-200px";
+      elTwo.style.borderBottom = "3px solid black";
+    }else if(window.innerHeight > window.innerWidth){
+
+      elOne.style.position = "fixed";
+      elOne.style.bottom = "0";
+      elOne.style.borderBottom = "none";
+
+      elTwo.style.position = "fixed";
+      elTwo.style.bottom = "0";
+      elTwo.style.borderBottom = "none";
+
+    }
+
+});
+
 let changeColorStroke = function (num) {
 
   paintClickSound.play();
-  console.log("colorChange");
-  let colors = ["black","green","red","blue","purple","#ff3399","yellow","orange","#66ff33","#ff1a1a","#00ffff","#ff99ff","#ff33cc","brown","white"]
 
+  let colors = [
+    "#800000",
+    "#cc0000",
+    "#990033",
+    "#e6004c",
+    "#ff0000",
+    "#ff3333",
+    "#cc2900",
+    "#ff3300",
+    "#ff531a",
+    "#ff751a",
+    "#ffb380",
+    "#ffcc00",
+    "#ffdb4d",
+    "#ffff00",
+    "#ffff4d",
+    "#ffff66",
+    "#336600",
+    "#33cc33",
+    "#00ff00",
+    "#66ff33",
+    "#99ff66",
+    "#003366",
+    "#0047b3",
+    "#0066ff",
+    "#0080ff",
+    "#99ccff",
+    "#33ccff",
+    "#6600cc",
+    "#ad33ff",
+    "#9900ff",
+    "#cc00ff",
+    "#ff80ff",
+    "#cc0099",
+    "#cc3399",
+    "#ff4dd2",
+    "#ff99ff",
+    "#663300",
+    "#b35900",
+    "#ff8c1a",
+    "#cc9900",
+    "#ffd24d",
+    "#000000",
+    "#595959",
+    "#a6a6a6",
+    "#f2f2f2",
+    "#ffffff"
+  ];
+  console.log(colors[num]);
   colorStroke = colors[num];
 }
 
 let openPanel = function (num) {
+
+  panelOpenBool = true;
 
   let element = document.getElementById("hiddenPanel" + num);
 
@@ -183,6 +261,23 @@ let openPanel = function (num) {
 }
 }
 
+let closePanel = function () {
+
+  elementMinSound.play();
+
+  panelOpenBool = false;
+
+  if (document.getElementById("hiddenPanel1").classList.contains("slideIn")) {
+
+    document.getElementById("hiddenPanel1").classList.remove("slideIn");
+
+  }else {
+
+    document.getElementById("hiddenPanel2").classList.remove("slideIn");
+
+  }
+}
+
 
 
 let btnClear = function () {
@@ -197,5 +292,32 @@ let btnClear = function () {
 let clearCanvas = function (canvas,ctx) {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+}
+
+let changeCanvas = function () {
+
+  btnClickSound.play();
+
+  closePanel();
+
+  arr = [];
+  imgArray = [];
+
+  if (canvasChangebool === false) {
+
+    canvasChangebool = true;
+    document.getElementById("letterLayer").style.display = "none";
+
+  }else{
+
+    drawingCorrect = false;
+    canvasChangebool = false;
+    getLetter(-1);
+    document.getElementById("letterLayer").style.display = "flex";
+
+  }
+
+  clearCanvas(canvas, ctx);
 
 }

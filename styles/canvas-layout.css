@@ -14,6 +14,10 @@
 
 .rightside {
   position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #sketchpad {
   height:700px;
@@ -58,32 +62,8 @@
   flex-direction: row;
   align-items: center;
 }
-#colorPallet {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#colorList {
-  width: 100%;
-  list-style: none;
-  display: flex;
-}
-#colorList:first-child {
-margin-left: 0;
-}
-#colorList li {
-  width: 5%;
-  height: 35px;
-  border: 1px solid black;
-  transition: .25s;
-  margin-left: 1%;
-}
-#colorList li:hover {
-  opacity: .3;
-  color: black;
-  cursor: pointer;
-}
+
+
 #contolPanelBtns {
   width: 48%;
   display: flex;
@@ -137,27 +117,38 @@ margin-left: 0;
   to { transform: scale(1,1) skew(0deg) rotate(360deg); }
 }
 
-#hiddenPanel1 {
-  width: 65%;
+#hiddenPanel1,#hiddenPanel2 {
+  width: 200px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   position: fixed;
-  bottom: -30px;
-  left: 17.5%;
-  height: 70px;
+  bottom: 0;
+  left: -210px;
+  height: 600px;
   background-color: gray;
-  border-left: 3px solid black;
   border-top: 3px solid black;
   border-right: 3px solid black;
   transition: .25s;
-  z-index: 98;
+  z-index: 100;
   box-shadow: 0 0 10px black;
+}
+.btnClosePanel {
+
+  position: absolute;
+  right: 5%;
+  bottom: 1%;
+  z-index: 1000;
+
+}
+#letterIcon{
+  width:100px;
+  text-align: center;
+}
+#palletIcon {
+  width:100px;
+  text-align: center;
 }
 .palletIcon {
   border-left: 1px solid black;
-  padding-left: 2%;
-  padding-right: 2.1%;
   border-right: 1px solid black;
   margin-left: 20%;
   box-shadow: 0 0 5px black;
@@ -166,55 +157,98 @@ margin-left: 0;
   background-color: white;
   cursor: pointer;
 }
-#hiddenPanel2 {
-  width: 65%;
-  display: flex;
-  position: fixed;
-  bottom: -55px;
-  left: 17.5%;
-  height: 95px;
-  background-color: gray;
-  border-left: 3px solid black;
-  border-top: 3px solid black;
-  border-right: 3px solid black;
-  transition: .25s;
-  z-index: 98;
-  box-shadow: 0 0 10px black;
-}
+
 .slideIn {
   animation: slideIn .3s linear;
   -webkit-animation: slideIn .3s linear;
   -moz-animation: slideIn .3s linear;
   animation-fill-mode: forwards;
 }
-.letterList {
-  width: 100%;
-  display: block;
+#colorList {
+  width: 450px;
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-#letterList1:first-child {
-  margin-left: 0;
+#colorList:first-child {
+margin-left: 0;
 }
-#letterList1 li {
-  display: inline-block;
-  width: 3.1%;
-  background-color: white;
-  height: 35px;
-  margin-left: .01%;
-  text-align: center;
-  font-size: 2vw;
+#colorList li {
+  width: 30px;
+  height: 30px;
   border: 1px solid black;
-  box-shadow: 0 0 3px black;
+  transition: .25s;
+  margin-left: 5px;
+}
+#colorList li:hover {
+  opacity: .3;
+  color: black;
+  cursor: pointer;
+}
+.letterList {
+  margin: 0;
+  width: 100%;
+  list-style: none;
+  margin-right: 10%;
+}
+
+.letterList li {
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  font-size: 25px;
+  border: 2px solid black;
+  box-shadow: 0 0 7px black;
+  margin-top: 20%;
+}
+.letterList li:hover {
+  opacity: .3;
+}
+
+#closePanelIcon1, #closePanelIcon2 {
+  font-size: 3.5vw;
+  margin-left: 0;
+
+}
+
+#canvasChangeIcon {
+  width: 75px;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: gray;
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  box-shadow: 0 0 5px black;
+  padding-right: 1%;
+  padding-left: 1%;
+}
+
+#canvasChangeIcon:hover {
+  background-color: white;
+  cursor: pointer;
 }
 
 @keyframes slideIn {
 
-  from {bottom: -20px;}
-  to {bottom: 50px;}
+  from {left: -210px;}
+  to {left: 0;}
 
 }
 @media screen and (orientation:portrait)
 {
+  #sketchpad {
+    margin-left: 0;
+    border: none;
+    border-bottom: 3px solid #888;
+    box-shadow: 0 4px 10px -2px black;
+  }
+
   #popUp {
     right: 5%;
   }
@@ -225,52 +259,42 @@ margin-left: 0;
     border-left: none;
     border-right: none;
   }
-  #hiddenPanel1 {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    bottom: -160px;
-    left: 5%;
-    height: 350px;
 
+  #hiddenPanel1, #hiddenPanel2 {
+    height: 1250px;
+    width: 450px;
+    left: -460px;
   }
-  #hiddenPanel2 {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    bottom: -160px;
-    left: 5%;
-    height: 350px;
+  @keyframes slideInPortrait {
+
+    from {left: -460px;}
+    to {left: 0;}
+
   }
   #colorList {
     flex-wrap: wrap;
   }
   #colorList li {
-    width: 10%;
+    width: 20%;
     height: 70px;
-    border: 2px solid black;
-    transition: .25s;
-    margin-left: .7%;
-    margin-top: 1%;
+    margin-left: 3%;
   }
-  #letterList1 li {
-    width: 6%;
-    background-color: white;
-    height: 50px;
-    margin-top: 1.5%;
-    text-align: center;
-    font-size: 4vw;
-    border: 2px solid black;
+
+  .letterList li {
+    font-size: 45px;
+    width: 90%;
   }
+
   #palletIcon,#letterIcon {
-    font-size: 150px;
     border-radius: 10px 10px 10px 10px;
     border: 2px solid black;
     box-shadow: 0 0 10px black;
+    width:200px;
+    height: 95px;
+    display: flex;
+    margin-left: 8%;
+    flex-direction: column;
+    justify-content: center;
   }
   .palletIcon {
   margin-left: 15%;
@@ -282,10 +306,11 @@ margin-left: 0;
     width: 38%;
     margin-left: 5%;
   }
+  #closePanelIcon1, #closePanelIcon2 {
+    font-size: 8vw;
+  }
 }
 @media screen and (orientation:landscape)
 {
-  .rightside {
-    margin-left: 50px;
-  }
+
 }
