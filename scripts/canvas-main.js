@@ -155,7 +155,7 @@ function init() {
     }
 }
 
-window.addEventListener("scroll", function () {
+/*window.addEventListener("scroll", function () {
 
   let elOne = document.getElementById("hiddenPanel1");
   let elTwo = document.getElementById("hiddenPanel2");
@@ -182,7 +182,7 @@ window.addEventListener("scroll", function () {
 
     }
 
-});
+});*/
 
 let changeColorStroke = function (num) {
 
