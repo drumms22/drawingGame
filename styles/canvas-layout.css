@@ -261,7 +261,7 @@ margin-left: 0;
   }
 
   #hiddenPanel1, #hiddenPanel2 {
-    height: 1200px;
+    height: 1100px;
     width: 450px;
     left: -460px;
   }
@@ -281,8 +281,8 @@ margin-left: 0;
   }
 
   .letterList li {
-    font-size: 45px;
-    width: 90%;
+    font-size: 39px;
+    width: 70%;
   }
 
   #palletIcon,#letterIcon {
