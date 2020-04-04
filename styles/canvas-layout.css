@@ -224,6 +224,7 @@ margin-left: 0;
   background-color: gray;
   border-left: 2px solid black;
   border-top: 2px solid black;
+  border-bottom: 2px solid black;
   box-shadow: 0 0 5px black;
   padding-right: 1%;
   padding-left: 1%;
@@ -314,9 +315,7 @@ margin-left: 0;
     font-size: 75px;
     position: fixed;
     bottom: 225px;
-    right: 0;
-    padding-right: 1%;
-    padding-left: 1%;
+    border-bottom: 2px solid black;
   }
 }
 @media screen and (orientation:landscape)
