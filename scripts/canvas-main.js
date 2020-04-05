@@ -237,6 +237,7 @@ let changeColorStroke = function (num) {
     "#ffffff"
   ];
   console.log(colors[num]);
+  setTimeout(closePanel, 200);
   colorStroke = colors[num];
 }
 

@@ -243,4 +243,9 @@ let letterZ = [
 ];
 */
 
+<i class="fab fa-cuttlefish"></i> clear
+<i class="far fa-plus-square"></i> new letter
+<i class="fas fa-eraser"></i> eraser
+<i class="fas fa-pencil-ruler"></i>
+
 //let letterCoordsArr = [letterA,letterB,letterC, letterD, letterE, letterF, letterG, letterH, letterI, letterJ, letterK, letterL, letterM, letterN, letterO, letterP, letterQ, letterR, letterS, letterT, letterU, letterV, letterW, letterX, letterY, letterZ];

@@ -273,6 +273,7 @@ const popUpSound = new Howl({
 let btnGetLetter = function (num) {
 
   letterClickSound.play();
+  setTimeout(closePanel, 200);
   getLetter(num);
 
 }
