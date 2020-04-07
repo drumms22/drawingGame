@@ -7,6 +7,7 @@ let canvasChangebool = false;
 let panelOpenBool = false;
 let lineSize= 50;
 let bottomPanelBool = true;
+let getBackground = false;
 
 const btnClickSound = new Howl({
   src: ['assets/sounds/click1.mp3']
@@ -29,10 +30,18 @@ const elementMinSound = new Howl({
 });
 
 function drawDot(ctx,x,y) {
+  if(getBackground === false && canvasChangebool == true){
+    console.log("background");
+    ctx.beginPath();
+    ctx.rect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    getBackground = true;
 
+  }else{
   //console.log("{ x: " + x + ", y: " + y + ", bool: false },");
   if(panelOpenBool === true){ closePanel();}
-    //ctx.save();
+
     ctx.beginPath();
     ctx.fillStyle =  colorStroke;
     ctx.arc(x, y, lineSize, 0, Math.PI*2, true);
@@ -50,6 +59,7 @@ function drawDot(ctx,x,y) {
     if(drawingCorrect === false){
     checkCoordinates(x,y);
     }
+  }
 
 }
 
@@ -178,7 +188,6 @@ function init() {
     canvas = document.getElementById('sketchpad');
     if (canvas.getContext)
         ctx = canvas.getContext('2d');
-
 
     if (ctx) {
 
@@ -365,6 +374,8 @@ let changeCanvas = function () {
     document.getElementById("eraserIcon").style.display = "block";
     document.getElementById("downloadIcon").style.display = "flex";
     document.getElementById("bottomPanelButton").style.display = "block";
+
+     drawDot(ctx,0,0);
 
 
   }else{
