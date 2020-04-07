@@ -109,7 +109,7 @@ function init() {
 
          //x: 389, y: 168,
     if (ctx) {
-        drawDot(ctx, 389, 168, 55);
+      
         if(canvasChangebool === false){
         //  getLetter(-1);
         }
