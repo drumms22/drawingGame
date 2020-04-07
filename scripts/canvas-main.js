@@ -365,7 +365,7 @@ let changeCanvas = function () {
   imgArray = [];
 
   if (canvasChangebool === false) {
-
+    getBackground = false;
     canvasChangebool = true;
     document.getElementById("letterLayer").style.display = "none";
     document.getElementById("letterIcon").style.display = "none";
