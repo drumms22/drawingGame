@@ -426,14 +426,14 @@ margin-left: 0;
     width:60%;
     left: 20%;
   }
-  #hiddenPanel1, #hiddenPanel2 {
+  #hiddenPanel1, #hiddenPanel2, #hiddenPanel3 {
     height: 1100px;
     width: 450px;
-    left: -460px;
+    left: -470px;
   }
   @keyframes slideInPortrait {
 
-    from {left: -460px;}
+    from {left: -470px;}
     to {left: 0;}
 
   }
@@ -492,6 +492,18 @@ margin-left: 0;
   }
   #bottomPanelButton {
     display: none;
+  }
+  .sideList {
+    width: 100%;
+  }
+  .sideList i {
+  margin-top:10%;
+  height: 175px;
+  width: 175px;
+  text-align: center;
+  font-size: 100px;
+  line-height:175px;
+  margin-left: 10%;
   }
 }
 @media screen and (orientation:landscape)
