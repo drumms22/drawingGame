@@ -375,7 +375,6 @@ let changeCanvas = function () {
     document.getElementById("downloadIcon").style.display = "flex";
     document.getElementById("bottomPanelButton").style.display = "block";
 
-     drawDot(ctx,0,0);
 
 
   }else{
