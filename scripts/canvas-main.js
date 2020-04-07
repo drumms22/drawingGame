@@ -5,7 +5,7 @@ var mouseX,mouseY,mouseDown=0;
 var touchX,touchY;
 let canvasChangebool = false;
 let panelOpenBool = false;
-let lineSize= 100;
+let lineSize= 50;
 let bottomPanelBool = true;
 
 const btnClickSound = new Howl({
@@ -34,17 +34,17 @@ function drawDot(ctx,x,y) {
   if(panelOpenBool === true){ closePanel();}
     //ctx.save();
     ctx.beginPath();
-    //ctx.fillStyle =  colorStroke;
-    //ctx.arc(x, y, size, 0, Math.PI*2, true);
+    ctx.fillStyle =  colorStroke;
+    ctx.arc(x, y, lineSize, 0, Math.PI*2, true);
     //ctx.moveTo(x, y);
-    ctx.lineWidth = lineSize;
-    ctx.lineCap = "round";
-    ctx.strokeStyle = colorStroke;
-    ctx.lineTo(x, y);
-    ctx.stroke();
-    ctx.closePath();
-    ctx.moveTo(x, y);
-  //  ctx.fill();
+    //ctx.lineWidth = lineSize;
+    //ctx.lineCap = "round";
+    //ctx.strokeStyle = colorStroke;
+    //ctx.lineTo(x, y);
+    //ctx.stroke();
+    //ctx.closePath();
+    //ctx.moveTo(x, y);
+    ctx.fill();
     //ctx.restore();
 
     if(drawingCorrect === false){
@@ -62,7 +62,7 @@ let getEraser = function () {
 let changeStrokeSize  = function (num) {
 
   paintClickSound.play();
-  lineSize = num;
+  lineSize = num/2;
   setTimeout(closePanel,200);
 
 }
