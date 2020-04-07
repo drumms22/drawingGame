@@ -381,7 +381,7 @@ let changeCanvas = function () {
 
     drawingCorrect = false;
     canvasChangebool = false;
-    lineSize = 100;
+    lineSize = 50;
     getLetter(-1);
     document.getElementById("sizeIcon").style.display = "none";
     document.getElementById("eraserIcon").style.display = "none";
