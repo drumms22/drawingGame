@@ -346,7 +346,13 @@ let btnClear = function () {
   hideImg();
   getLetter(letterNum);
   closePanel();
+
+  if(canvasChangebool === true){
+    getBackground = false;
+    drawDot(ctx,0,0);
+  }else{
   clearCanvas(canvas, ctx);
+  }
 }
 
 let clearCanvas = function (canvas,ctx) {
