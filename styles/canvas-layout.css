@@ -431,6 +431,9 @@ margin-left: 0;
     width: 450px;
     left: -470px;
   }
+  #closePanelIcon1, #closePanelIcon2 {
+    width: 100px;
+  }
   @keyframes slideInPortrait {
 
     from {left: -470px;}
